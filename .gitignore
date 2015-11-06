@@ -1,0 +1,12 @@
+# Ignore backup files
+*~
+*.log
+.DS_Store
+.asv
+*.class
+
+# Ignore binary files *.class
+/ecoreAnnotation.metamodel/bin
+/ecoreAnnotation.edit/bin
+/ecoreAnnotation.editor/bin
+/ecoreAnnotation.design/bin
