@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ecoreAnnotation -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ecoreAnnotation.presentation.EcoreAnnotationModelWizardID"
+            name="%_UI_EcoreAnnotationModelWizard_label"
+            class="ecoreAnnotation.presentation.EcoreAnnotationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EcoreAnnotationModelFile.gif">
+         <description>%_UI_EcoreAnnotationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ecoreAnnotation -->
+      <editor
+            id="ecoreAnnotation.presentation.EcoreAnnotationEditorID"
+            name="%_UI_EcoreAnnotationEditor_label"
+            icon="icons/full/obj16/EcoreAnnotationModelFile.gif"
+            extensions="ecoreannotation"
+            class="ecoreAnnotation.presentation.EcoreAnnotationEditor"
+            contributorClass="ecoreAnnotation.presentation.EcoreAnnotationActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
