@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="extendEcore" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="extendEcore" version="8.1.0">
   <ownedViewpoints name="EcoreAnnotation" modelFileExtension="ecoreannotation">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AnnotationDiagram" initialisation="true" domainClass="ecoreAnnotation.AnnotationModel">
       <metamodel href="../../ecoreAnnotation.metamodel/model/ecoreAnnotation.ecore#/"/>
       <metamodel href="http://www.eclipse.org/emf/2002/Ecore#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="Annotation" targetFinderExpression="[thisEObject.annotatedClasses->at(2)/]" sourceFinderExpression="[thisEObject.annotatedClasses->at(1)/]" domainClass="ecoreAnnotation.ClassAnnotation" useDomainElement="true">
-          <sourceMapping xsi:type="description_1:ContainerMapping" href="../../org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-          <targetMapping xsi:type="description_1:ContainerMapping" href="../../org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <edgeMappings name="Annotation" doubleClickDescription="//@ownedViewpoints[name='EcoreAnnotation']/@ownedRepresentations[name='AnnotationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='OpenClassAnnotationDiagram']" targetFinderExpression="[thisEObject.annotatedClass/]" sourceFinderExpression="[thisEObject.annotatingClass/]" domainClass="ecoreAnnotation.AnnotationClass" useDomainElement="true">
+          <sourceMapping xsi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+          <targetMapping xsi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
           <style lineStyle="dash" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="['&lt;annotate> : ' + thisEObject.name/]">
@@ -16,7 +16,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <reusedMappings xsi:type="description_1:ContainerMapping" href="../../org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <reusedMappings xsi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <toolSections name="Import" label="Import">
           <ownedTools xsi:type="tool:SelectionWizardDescription" name="ImportEClass" label="Import EClass" candidatesExpression="service:getValidsForDiagram(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="feature:eContents">
             <element name="element"/>
@@ -43,15 +43,37 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[sourceView.eContainer().oclAsType(DSemanticDiagram).target/]">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="ecoreAnnotation.ClassAnnotation" referenceName="classes">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="ecoreAnnotation.AnnotationClass" referenceName="classes">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="A"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatedClasses" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatedClasses" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatingClass" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="annotatedClass" valueExpression="var:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="OpenClassAnnotationDiagram" mappings="//@ownedViewpoints[name='EcoreAnnotation']/@ownedRepresentations[name='AnnotationDiagram']/@defaultLayer/@edgeMappings[name='Annotation']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='EcoreAnnotation']/@ownedRepresentations[name='ClassAnnotationDiagram']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ClassAnnotationDiagram" domainClass="ecoreAnnotation.AnnotationClass">
+      <metamodel href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+      <metamodel href="../../ecoreAnnotation.metamodel/model/ecoreAnnotation.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="Property" semanticCandidatesExpression="[thisEObject.annotatingClass.eAttributes/]" domainClass="ecore.EAttribute">
+          <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>

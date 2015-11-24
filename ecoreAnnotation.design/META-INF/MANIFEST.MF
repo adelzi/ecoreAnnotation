@@ -7,8 +7,9 @@ Bundle-Activator: ecoreAnnotation.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.sirius,
+ org.eclipse.sirius;visibility:=reexport,
  org.eclipse.sirius.common.acceleo.mtl,
- org.eclipse.emf.ecoretools.design
+ org.eclipse.emf.ecoretools.design,
+ org.eclipse.sirius.ui;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
