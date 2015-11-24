@@ -20,6 +20,13 @@
          <description>%_UI_EcoreAnnotationModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
+      <wizard
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            class="ecoreAnnotation.presentation.EcoreAnnotationProjectIWizard"
+            icon="icons/full/obj16/EcoreAnnotationProject.gif"
+            id="ecoreAnnotation.editor.ecoreAnnotationWizard"
+            name="EcoreAnnotation Project Wizard">
+      </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -32,6 +39,23 @@
             class="ecoreAnnotation.presentation.EcoreAnnotationEditor"
             contributorClass="ecoreAnnotation.presentation.EcoreAnnotationActionBarContributor">
       </editor>
+   </extension>
+   <extension
+         id="ecoreAnnotationNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="ecoreAnnotation.presentation.EcoreAnnotationNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/full/obj16/EcoreAnnotationProject.gif"
+            id="ecoreAnnotation.editor.ecoreAnnotationNatureImage"
+            natureId="ecoreAnnotation.editor.ecoreAnnotationNature">
+      </image>
    </extension>
 
 </plugin>
