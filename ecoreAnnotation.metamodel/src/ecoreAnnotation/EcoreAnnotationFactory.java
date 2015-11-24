@@ -31,22 +31,22 @@ public interface EcoreAnnotationFactory extends EFactory {
 	AnnotationModel createAnnotationModel();
 
 	/**
-	 * Returns a new object of class '<em>Class Annotation</em>'.
+	 * Returns a new object of class '<em>Annotation Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class Annotation</em>'.
+	 * @return a new object of class '<em>Annotation Class</em>'.
 	 * @generated
 	 */
-	ClassAnnotation createClassAnnotation();
+	AnnotationClass createAnnotationClass();
 
 	/**
-	 * Returns a new object of class '<em>Property Annotation</em>'.
+	 * Returns a new object of class '<em>Property Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Annotation</em>'.
+	 * @return a new object of class '<em>Property Mapping</em>'.
 	 * @generated
 	 */
-	PropertyAnnotation createPropertyAnnotation();
+	PropertyMapping createPropertyMapping();
 
 	/**
 	 * Returns a new object of class '<em>Expression</em>'.

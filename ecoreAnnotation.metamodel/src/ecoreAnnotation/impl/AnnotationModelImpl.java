@@ -2,23 +2,17 @@
  */
 package ecoreAnnotation.impl;
 
+import ecoreAnnotation.AnnotationClass;
 import ecoreAnnotation.AnnotationModel;
-import ecoreAnnotation.ClassAnnotation;
 import ecoreAnnotation.EcoreAnnotationPackage;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -65,7 +59,7 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ClassAnnotation> classes;
+	protected EList<AnnotationClass> classes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,9 +106,9 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ClassAnnotation> getClasses() {
+	public EList<AnnotationClass> getClasses() {
 		if (classes == null) {
-			classes = new EObjectContainmentEList<ClassAnnotation>(ClassAnnotation.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES);
+			classes = new EObjectContainmentEList<AnnotationClass>(AnnotationClass.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES);
 		}
 		return classes;
 	}
@@ -163,7 +157,7 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
 				getClasses().clear();
-				getClasses().addAll((Collection<? extends ClassAnnotation>)newValue);
+				getClasses().addAll((Collection<? extends AnnotationClass>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

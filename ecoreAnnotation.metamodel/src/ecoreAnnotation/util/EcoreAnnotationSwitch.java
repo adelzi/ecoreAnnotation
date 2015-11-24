@@ -75,18 +75,18 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcoreAnnotationPackage.CLASS_ANNOTATION: {
-				ClassAnnotation classAnnotation = (ClassAnnotation)theEObject;
-				T result = caseClassAnnotation(classAnnotation);
-				if (result == null) result = caseEClassifier(classAnnotation);
-				if (result == null) result = caseENamedElement(classAnnotation);
-				if (result == null) result = caseEModelElement(classAnnotation);
+			case EcoreAnnotationPackage.ANNOTATION_CLASS: {
+				AnnotationClass annotationClass = (AnnotationClass)theEObject;
+				T result = caseAnnotationClass(annotationClass);
+				if (result == null) result = caseEClassifier(annotationClass);
+				if (result == null) result = caseENamedElement(annotationClass);
+				if (result == null) result = caseEModelElement(annotationClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcoreAnnotationPackage.PROPERTY_ANNOTATION: {
-				PropertyAnnotation propertyAnnotation = (PropertyAnnotation)theEObject;
-				T result = casePropertyAnnotation(propertyAnnotation);
+			case EcoreAnnotationPackage.PROPERTY_MAPPING: {
+				PropertyMapping propertyMapping = (PropertyMapping)theEObject;
+				T result = casePropertyMapping(propertyMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,32 +116,32 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Class Annotation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Class Annotation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Class</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseClassAnnotation(ClassAnnotation object) {
+	public T caseAnnotationClass(AnnotationClass object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Annotation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Property Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Annotation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Property Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyAnnotation(PropertyAnnotation object) {
+	public T casePropertyMapping(PropertyMapping object) {
 		return null;
 	}
 

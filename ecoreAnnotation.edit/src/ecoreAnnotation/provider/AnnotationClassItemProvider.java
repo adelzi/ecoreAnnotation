@@ -3,7 +3,7 @@
 package ecoreAnnotation.provider;
 
 
-import ecoreAnnotation.ClassAnnotation;
+import ecoreAnnotation.AnnotationClass;
 import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
 
@@ -24,19 +24,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ecoreAnnotation.ClassAnnotation} object.
+ * This is the item provider adapter for a {@link ecoreAnnotation.AnnotationClass} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassAnnotationItemProvider extends EClassifierItemProvider {
+public class AnnotationClassItemProvider extends EClassifierItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClassAnnotationItemProvider(AdapterFactory adapterFactory) {
+	public AnnotationClassItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -51,25 +51,48 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAnnotatedClassesPropertyDescriptor(object);
+			addAnnotatedClassPropertyDescriptor(object);
+			addAnnotatingClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Annotated Classes feature.
+	 * This adds a property descriptor for the Annotated Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAnnotatedClassesPropertyDescriptor(Object object) {
+	protected void addAnnotatedClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ClassAnnotation_annotatedClasses_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ClassAnnotation_annotatedClasses_feature", "_UI_ClassAnnotation_type"),
-				 EcoreAnnotationPackage.Literals.CLASS_ANNOTATION__ANNOTATED_CLASSES,
+				 getString("_UI_AnnotationClass_annotatedClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotationClass_annotatedClass_feature", "_UI_AnnotationClass_type"),
+				 EcoreAnnotationPackage.Literals.ANNOTATION_CLASS__ANNOTATED_CLASS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Annotating Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotatingClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AnnotationClass_annotatingClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotationClass_annotatingClass_feature", "_UI_AnnotationClass_type"),
+				 EcoreAnnotationPackage.Literals.ANNOTATION_CLASS__ANNOTATING_CLASS,
 				 true,
 				 false,
 				 true,
@@ -90,7 +113,7 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.CLASS_ANNOTATION__PROPERTIES);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_CLASS__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -109,14 +132,14 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 	}
 
 	/**
-	 * This returns ClassAnnotation.gif.
+	 * This returns AnnotationClass.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ClassAnnotation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnnotationClass"));
 	}
 
 	/**
@@ -127,10 +150,10 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ClassAnnotation)object).getName();
+		String label = ((AnnotationClass)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ClassAnnotation_type") :
-			getString("_UI_ClassAnnotation_type") + " " + label;
+			getString("_UI_AnnotationClass_type") :
+			getString("_UI_AnnotationClass_type") + " " + label;
 	}
 	
 
@@ -145,8 +168,8 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ClassAnnotation.class)) {
-			case EcoreAnnotationPackage.CLASS_ANNOTATION__PROPERTIES:
+		switch (notification.getFeatureID(AnnotationClass.class)) {
+			case EcoreAnnotationPackage.ANNOTATION_CLASS__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,8 +189,8 @@ public class ClassAnnotationItemProvider extends EClassifierItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EcoreAnnotationPackage.Literals.CLASS_ANNOTATION__PROPERTIES,
-				 EcoreAnnotationFactory.eINSTANCE.createPropertyAnnotation()));
+				(EcoreAnnotationPackage.Literals.ANNOTATION_CLASS__PROPERTIES,
+				 EcoreAnnotationFactory.eINSTANCE.createPropertyMapping()));
 	}
 
 	/**

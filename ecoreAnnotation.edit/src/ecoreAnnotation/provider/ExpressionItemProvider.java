@@ -6,6 +6,7 @@ package ecoreAnnotation.provider;
 import ecoreAnnotation.EcoreAnnotationPackage;
 import ecoreAnnotation.Expression;
 
+import ecoreAnnotation.ExpressionType;
 import java.util.Collection;
 import java.util.List;
 
@@ -60,25 +61,48 @@ public class ExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Expression_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_description_feature", "_UI_Expression_type"),
-				 EcoreAnnotationPackage.Literals.EXPRESSION__DESCRIPTION,
+				 getString("_UI_Expression_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_type_feature", "_UI_Expression_type"),
+				 EcoreAnnotationPackage.Literals.EXPRESSION__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Expression_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_value_feature", "_UI_Expression_type"),
+				 EcoreAnnotationPackage.Literals.EXPRESSION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -106,7 +130,8 @@ public class ExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Expression)object).getDescription();
+		ExpressionType labelValue = ((Expression)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Expression_type") :
 			getString("_UI_Expression_type") + " " + label;
@@ -125,7 +150,8 @@ public class ExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Expression.class)) {
-			case EcoreAnnotationPackage.EXPRESSION__DESCRIPTION:
+			case EcoreAnnotationPackage.EXPRESSION__TYPE:
+			case EcoreAnnotationPackage.EXPRESSION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

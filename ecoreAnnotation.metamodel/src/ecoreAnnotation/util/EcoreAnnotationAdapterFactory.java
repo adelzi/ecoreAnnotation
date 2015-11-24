@@ -75,12 +75,12 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createAnnotationModelAdapter();
 			}
 			@Override
-			public Adapter caseClassAnnotation(ClassAnnotation object) {
-				return createClassAnnotationAdapter();
+			public Adapter caseAnnotationClass(AnnotationClass object) {
+				return createAnnotationClassAdapter();
 			}
 			@Override
-			public Adapter casePropertyAnnotation(PropertyAnnotation object) {
-				return createPropertyAnnotationAdapter();
+			public Adapter casePropertyMapping(PropertyMapping object) {
+				return createPropertyMappingAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {
@@ -133,30 +133,30 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.ClassAnnotation <em>Class Annotation</em>}'.
+	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.AnnotationClass <em>Annotation Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ecoreAnnotation.ClassAnnotation
+	 * @see ecoreAnnotation.AnnotationClass
 	 * @generated
 	 */
-	public Adapter createClassAnnotationAdapter() {
+	public Adapter createAnnotationClassAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.PropertyAnnotation <em>Property Annotation</em>}'.
+	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.PropertyMapping <em>Property Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ecoreAnnotation.PropertyAnnotation
+	 * @see ecoreAnnotation.PropertyMapping
 	 * @generated
 	 */
-	public Adapter createPropertyAnnotationAdapter() {
+	public Adapter createPropertyMappingAdapter() {
 		return null;
 	}
 

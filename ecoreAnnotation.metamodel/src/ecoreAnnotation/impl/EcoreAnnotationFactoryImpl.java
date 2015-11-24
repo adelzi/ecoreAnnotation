@@ -5,6 +5,7 @@ package ecoreAnnotation.impl;
 import ecoreAnnotation.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -57,11 +58,41 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EcoreAnnotationPackage.ANNOTATION_MODEL: return createAnnotationModel();
-			case EcoreAnnotationPackage.CLASS_ANNOTATION: return createClassAnnotation();
-			case EcoreAnnotationPackage.PROPERTY_ANNOTATION: return createPropertyAnnotation();
+			case EcoreAnnotationPackage.ANNOTATION_CLASS: return createAnnotationClass();
+			case EcoreAnnotationPackage.PROPERTY_MAPPING: return createPropertyMapping();
 			case EcoreAnnotationPackage.EXPRESSION: return createExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case EcoreAnnotationPackage.EXPRESSION_TYPE:
+				return createExpressionTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case EcoreAnnotationPackage.EXPRESSION_TYPE:
+				return convertExpressionTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -80,9 +111,9 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClassAnnotation createClassAnnotation() {
-		ClassAnnotationImpl classAnnotation = new ClassAnnotationImpl();
-		return classAnnotation;
+	public AnnotationClass createAnnotationClass() {
+		AnnotationClassImpl annotationClass = new AnnotationClassImpl();
+		return annotationClass;
 	}
 
 	/**
@@ -90,9 +121,9 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyAnnotation createPropertyAnnotation() {
-		PropertyAnnotationImpl propertyAnnotation = new PropertyAnnotationImpl();
-		return propertyAnnotation;
+	public PropertyMapping createPropertyMapping() {
+		PropertyMappingImpl propertyMapping = new PropertyMappingImpl();
+		return propertyMapping;
 	}
 
 	/**
@@ -103,6 +134,26 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 	public Expression createExpression() {
 		ExpressionImpl expression = new ExpressionImpl();
 		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExpressionType createExpressionTypeFromString(EDataType eDataType, String initialValue) {
+		ExpressionType result = ExpressionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertExpressionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

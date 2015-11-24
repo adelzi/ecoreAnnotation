@@ -52,7 +52,7 @@ public interface AnnotationModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
-	 * The list contents are of type {@link ecoreAnnotation.ClassAnnotation}.
+	 * The list contents are of type {@link ecoreAnnotation.AnnotationClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Classes</em>' containment reference list isn't clear,
@@ -64,6 +64,6 @@ public interface AnnotationModel extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ClassAnnotation> getClasses();
+	EList<AnnotationClass> getClasses();
 
 } // AnnotationModel

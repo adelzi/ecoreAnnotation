@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ecoreAnnotation.Expression#getDescription <em>Description</em>}</li>
+ *   <li>{@link ecoreAnnotation.Expression#getType <em>Type</em>}</li>
+ *   <li>{@link ecoreAnnotation.Expression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,29 +23,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Expression extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link ecoreAnnotation.ExpressionType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see ecoreAnnotation.EcoreAnnotationPackage#getExpression_Description()
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see ecoreAnnotation.ExpressionType
+	 * @see #setType(ExpressionType)
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getExpression_Type()
 	 * @model
 	 * @generated
 	 */
-	String getDescription();
+	ExpressionType getType();
 
 	/**
-	 * Sets the value of the '{@link ecoreAnnotation.Expression#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link ecoreAnnotation.Expression#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see ecoreAnnotation.ExpressionType
+	 * @see #getType()
 	 * @generated
 	 */
-	void setDescription(String value);
+	void setType(ExpressionType value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(String)
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getExpression_Value()
+	 * @model
+	 * @generated
+	 */
+	String getValue();
+
+	/**
+	 * Sets the value of the '{@link ecoreAnnotation.Expression#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(String value);
 
 } // Expression

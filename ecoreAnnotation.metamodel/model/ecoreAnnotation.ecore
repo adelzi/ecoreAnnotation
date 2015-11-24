@@ -5,20 +5,32 @@
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
-        eType="#//ClassAnnotation" containment="true"/>
+        eType="#//AnnotationClass" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassAnnotation" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier">
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotationClass" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//PropertyAnnotation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedClasses" lowerBound="2"
-        upperBound="2" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+        eType="#//PropertyMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedClass" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatingClass" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyAnnotation">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyMapping">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatingProperty" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedProperty" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ExpressionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExpressionType">
+    <eLiterals name="constraint"/>
+    <eLiterals name="algebric"/>
+    <eLiterals name="discret"/>
   </eClassifiers>
 </ecore:EPackage>

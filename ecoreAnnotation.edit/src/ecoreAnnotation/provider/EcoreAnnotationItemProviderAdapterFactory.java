@@ -95,49 +95,49 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.ClassAnnotation} instances.
+	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.AnnotationClass} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ClassAnnotationItemProvider classAnnotationItemProvider;
+	protected AnnotationClassItemProvider annotationClassItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecoreAnnotation.ClassAnnotation}.
+	 * This creates an adapter for a {@link ecoreAnnotation.AnnotationClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createClassAnnotationAdapter() {
-		if (classAnnotationItemProvider == null) {
-			classAnnotationItemProvider = new ClassAnnotationItemProvider(this);
+	public Adapter createAnnotationClassAdapter() {
+		if (annotationClassItemProvider == null) {
+			annotationClassItemProvider = new AnnotationClassItemProvider(this);
 		}
 
-		return classAnnotationItemProvider;
+		return annotationClassItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.PropertyAnnotation} instances.
+	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.PropertyMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyAnnotationItemProvider propertyAnnotationItemProvider;
+	protected PropertyMappingItemProvider propertyMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecoreAnnotation.PropertyAnnotation}.
+	 * This creates an adapter for a {@link ecoreAnnotation.PropertyMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropertyAnnotationAdapter() {
-		if (propertyAnnotationItemProvider == null) {
-			propertyAnnotationItemProvider = new PropertyAnnotationItemProvider(this);
+	public Adapter createPropertyMappingAdapter() {
+		if (propertyMappingItemProvider == null) {
+			propertyMappingItemProvider = new PropertyMappingItemProvider(this);
 		}
 
-		return propertyAnnotationItemProvider;
+		return propertyMappingItemProvider;
 	}
 
 	/**
@@ -263,8 +263,8 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 	 */
 	public void dispose() {
 		if (annotationModelItemProvider != null) annotationModelItemProvider.dispose();
-		if (classAnnotationItemProvider != null) classAnnotationItemProvider.dispose();
-		if (propertyAnnotationItemProvider != null) propertyAnnotationItemProvider.dispose();
+		if (annotationClassItemProvider != null) annotationClassItemProvider.dispose();
+		if (propertyMappingItemProvider != null) propertyMappingItemProvider.dispose();
 		if (expressionItemProvider != null) expressionItemProvider.dispose();
 	}
 

@@ -182,7 +182,7 @@ public class AnnotationModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES,
-				 EcoreAnnotationFactory.eINSTANCE.createClassAnnotation()));
+				 EcoreAnnotationFactory.eINSTANCE.createAnnotationClass()));
 	}
 
 	/**

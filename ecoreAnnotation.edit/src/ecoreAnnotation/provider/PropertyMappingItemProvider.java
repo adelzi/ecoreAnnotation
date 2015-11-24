@@ -5,7 +5,7 @@ package ecoreAnnotation.provider;
 
 import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
-import ecoreAnnotation.PropertyAnnotation;
+import ecoreAnnotation.PropertyMapping;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ecoreAnnotation.PropertyAnnotation} object.
+ * This is the item provider adapter for a {@link ecoreAnnotation.PropertyMapping} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyAnnotationItemProvider 
+public class PropertyMappingItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class PropertyAnnotationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyAnnotationItemProvider(AdapterFactory adapterFactory) {
+	public PropertyMappingItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,6 +64,8 @@ public class PropertyAnnotationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addAnnotatingPropertyPropertyDescriptor(object);
+			addAnnotatedPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,13 +81,57 @@ public class PropertyAnnotationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyAnnotation_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyAnnotation_name_feature", "_UI_PropertyAnnotation_type"),
-				 EcoreAnnotationPackage.Literals.PROPERTY_ANNOTATION__NAME,
+				 getString("_UI_PropertyMapping_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMapping_name_feature", "_UI_PropertyMapping_type"),
+				 EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Annotating Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotatingPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMapping_annotatingProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMapping_annotatingProperty_feature", "_UI_PropertyMapping_type"),
+				 EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__ANNOTATING_PROPERTY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Annotated Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotatedPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMapping_annotatedProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMapping_annotatedProperty_feature", "_UI_PropertyMapping_type"),
+				 EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__ANNOTATED_PROPERTY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -102,7 +148,7 @@ public class PropertyAnnotationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.PROPERTY_ANNOTATION__EXPRESSION);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION);
 		}
 		return childrenFeatures;
 	}
@@ -121,14 +167,14 @@ public class PropertyAnnotationItemProvider
 	}
 
 	/**
-	 * This returns PropertyAnnotation.gif.
+	 * This returns PropertyMapping.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyAnnotation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyMapping"));
 	}
 
 	/**
@@ -139,10 +185,10 @@ public class PropertyAnnotationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PropertyAnnotation)object).getName();
+		String label = ((PropertyMapping)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PropertyAnnotation_type") :
-			getString("_UI_PropertyAnnotation_type") + " " + label;
+			getString("_UI_PropertyMapping_type") :
+			getString("_UI_PropertyMapping_type") + " " + label;
 	}
 	
 
@@ -157,11 +203,11 @@ public class PropertyAnnotationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PropertyAnnotation.class)) {
-			case EcoreAnnotationPackage.PROPERTY_ANNOTATION__NAME:
+		switch (notification.getFeatureID(PropertyMapping.class)) {
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EcoreAnnotationPackage.PROPERTY_ANNOTATION__EXPRESSION:
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,7 +227,7 @@ public class PropertyAnnotationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EcoreAnnotationPackage.Literals.PROPERTY_ANNOTATION__EXPRESSION,
+				(EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION,
 				 EcoreAnnotationFactory.eINSTANCE.createExpression()));
 	}
 
