@@ -3,9 +3,7 @@
 package ecoreAnnotation.presentation;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,11 +15,10 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -42,10 +39,6 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import ecoreAnnotation.AnnotationModel;
-import ecoreAnnotation.EcoreAnnotationFactory;
-import ecoreAnnotation.EcoreAnnotationPackage;
-
 
 /**
  * This is a simple wizard for creating a new model file.
@@ -53,7 +46,7 @@ import ecoreAnnotation.EcoreAnnotationPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
+public class EcoreModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -61,7 +54,7 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -70,23 +63,7 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
-
-	/**
-	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EcoreAnnotationPackage ecoreAnnotationPackage = EcoreAnnotationPackage.eINSTANCE;
-
-	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EcoreAnnotationFactory ecoreAnnotationFactory = ecoreAnnotationPackage.getEcoreAnnotationFactory();
+		EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This is the file creation page.
@@ -94,7 +71,7 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EcoreAnnotationModelWizardNewFileCreationPage newFileCreationPage;
+	protected EcoreModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -134,42 +111,22 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Returns the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<String> getInitialObjectNames() {
-		if (initialObjectNames == null) {
-			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : ecoreAnnotationPackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
-					}
-				}
-			}
-			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
-		}
-		return initialObjectNames;
-	}
-
-	/**
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)ecoreAnnotationPackage.getEClassifier("AnnotationModel");
-		EObject rootObject = ecoreAnnotationFactory.create(eClass);
+		
+		EPackage ePackage = EcoreFactory.eINSTANCE.createEPackage();
 
 		// get initial name
-		String name = newFileCreationPage.getFileName().split(".ecoreannotation")[0];
-		((AnnotationModel) rootObject).setName(name);
+		String name = newFileCreationPage.getFileName().split(".ecore")[0];
+		ePackage.setName(name);
+		ePackage.setNsPrefix(name);
+		ePackage.setNsURI("http://wwww." + name + ".com");
 
-		return rootObject;
+		return ePackage;
 	}
 
 	/**
@@ -267,14 +224,14 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class EcoreAnnotationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class EcoreModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public EcoreAnnotationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public EcoreModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -318,10 +275,10 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new EcoreAnnotationModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationModelWizard_label"));
-		newFileCreationPage.setDescription(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationModelWizard_description"));
-		newFileCreationPage.setFileName(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new EcoreModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreModelWizard_label"));
+		newFileCreationPage.setDescription(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreModelWizard_description"));
+		newFileCreationPage.setFileName(EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -347,7 +304,7 @@ public class EcoreAnnotationModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreAnnotationEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = EcoreAnnotationEditorPlugin.INSTANCE.getString("_UI_EcoreEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {

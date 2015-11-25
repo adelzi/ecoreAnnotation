@@ -12,6 +12,13 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            class="ecoreAnnotation.presentation.EcoreAnnotationProjectIWizard"
+            icon="icons/full/obj16/EcoreAnnotationProject.gif"
+            id="ecoreAnnotation.editor.ecoreAnnotationWizard"
+            name="EcoreAnnotation Project">
+      </wizard>
+      <wizard
             id="ecoreAnnotation.presentation.EcoreAnnotationModelWizardID"
             name="%_UI_EcoreAnnotationModelWizard_label"
             class="ecoreAnnotation.presentation.EcoreAnnotationModelWizard"
@@ -22,10 +29,16 @@
       </wizard>
       <wizard
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            class="ecoreAnnotation.presentation.EcoreAnnotationProjectIWizard"
-            icon="icons/full/obj16/EcoreAnnotationProject.gif"
-            id="ecoreAnnotation.editor.ecoreAnnotationWizard"
-            name="EcoreAnnotation Project Wizard">
+            class="ecoreAnnotation.presentation.EcoreModelWizard"
+            icon="icons/full/obj16/EcoreModelFile.gif"
+            id="ecoreAnnotation.editor.ecoreModelWizard"
+            name="Ecore Model">
+         <description>
+            %_UI_EcoreAnnotationModelWizard_description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
       </wizard>
    </extension>
 
