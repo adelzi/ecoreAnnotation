@@ -2,10 +2,7 @@
  */
 package ecoreAnnotation;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +12,6 @@ import org.eclipse.emf.ecore.EClassifier;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ecoreAnnotation.AnnotationClass#getProperties <em>Properties</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationClass#getAnnotatedClass <em>Annotated Class</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationClass#getAnnotatingClass <em>Annotating Class</em>}</li>
  * </ul>
@@ -25,23 +21,7 @@ import org.eclipse.emf.ecore.EClassifier;
  * @model
  * @generated
  */
-public interface AnnotationClass extends EClassifier {
-	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link ecoreAnnotation.PropertyMapping}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see ecoreAnnotation.EcoreAnnotationPackage#getAnnotationClass_Properties()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<PropertyMapping> getProperties();
-
+public interface AnnotationClass extends Annotation {
 	/**
 	 * Returns the value of the '<em><b>Annotated Class</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -78,6 +78,7 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 			case EcoreAnnotationPackage.ANNOTATION_CLASS: {
 				AnnotationClass annotationClass = (AnnotationClass)theEObject;
 				T result = caseAnnotationClass(annotationClass);
+				if (result == null) result = caseAnnotation(annotationClass);
 				if (result == null) result = caseEClassifier(annotationClass);
 				if (result == null) result = caseENamedElement(annotationClass);
 				if (result == null) result = caseEModelElement(annotationClass);
@@ -90,9 +91,22 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcoreAnnotationPackage.EXPRESSION: {
-				Expression expression = (Expression)theEObject;
-				T result = caseExpression(expression);
+			case EcoreAnnotationPackage.CASE_OF: {
+				CaseOf caseOf = (CaseOf)theEObject;
+				T result = caseCaseOf(caseOf);
+				if (result == null) result = caseAnnotation(caseOf);
+				if (result == null) result = caseEClassifier(caseOf);
+				if (result == null) result = caseENamedElement(caseOf);
+				if (result == null) result = caseEModelElement(caseOf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcoreAnnotationPackage.ANNOTATION: {
+				Annotation annotation = (Annotation)theEObject;
+				T result = caseAnnotation(annotation);
+				if (result == null) result = caseEClassifier(annotation);
+				if (result == null) result = caseENamedElement(annotation);
+				if (result == null) result = caseEModelElement(annotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,17 +160,32 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Case Of</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Case Of</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExpression(Expression object) {
+	public T caseCaseOf(CaseOf object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
 		return null;
 	}
 

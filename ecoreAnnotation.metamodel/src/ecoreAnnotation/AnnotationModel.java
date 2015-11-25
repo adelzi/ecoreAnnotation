@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getName <em>Name</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getClasses <em>Classes</em>}</li>
+ *   <li>{@link ecoreAnnotation.AnnotationModel#getPartialInhiritences <em>Partial Inhiritences</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,5 +66,21 @@ public interface AnnotationModel extends EObject {
 	 * @generated
 	 */
 	EList<AnnotationClass> getClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Partial Inhiritences</b></em>' containment reference list.
+	 * The list contents are of type {@link ecoreAnnotation.CaseOf}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Partial Inhiritences</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Partial Inhiritences</em>' containment reference list.
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getAnnotationModel_PartialInhiritences()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CaseOf> getPartialInhiritences();
 
 } // AnnotationModel

@@ -3,16 +3,12 @@
 package ecoreAnnotation.impl;
 
 import ecoreAnnotation.EcoreAnnotationPackage;
-import ecoreAnnotation.Expression;
+import ecoreAnnotation.ExpressionType;
 import ecoreAnnotation.PropertyMapping;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -24,9 +20,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getName <em>Name</em>}</li>
- *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getAnnotatingProperty <em>Annotating Property</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getAnnotatedProperty <em>Annotated Property</em>}</li>
+ *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getExpressionType <em>Expression Type</em>}</li>
+ *   <li>{@link ecoreAnnotation.impl.PropertyMappingImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,16 +51,6 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected Expression expression;
-
-	/**
 	 * The cached value of the '{@link #getAnnotatingProperty() <em>Annotating Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +69,46 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EAttribute annotatedProperty;
+
+	/**
+	 * The default value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpressionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ExpressionType EXPRESSION_TYPE_EDEFAULT = ExpressionType.CONSTRAINT;
+
+	/**
+	 * The cached value of the '{@link #getExpressionType() <em>Expression Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpressionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExpressionType expressionType = EXPRESSION_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String expression = EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +155,7 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getExpression() {
+	public String getExpression() {
 		return expression;
 	}
 
@@ -137,33 +164,11 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
-		Expression oldExpression = expression;
+	public void setExpression(String newExpression) {
+		String oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION, oldExpression, newExpression);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExpression(Expression newExpression) {
-		if (newExpression != expression) {
-			NotificationChain msgs = null;
-			if (expression != null)
-				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION, null, msgs);
-			if (newExpression != null)
-				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION, null, msgs);
-			msgs = basicSetExpression(newExpression, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION, newExpression, newExpression));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION, oldExpression, expression));
 	}
 
 	/**
@@ -247,13 +252,20 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				return basicSetExpression(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public ExpressionType getExpressionType() {
+		return expressionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpressionType(ExpressionType newExpressionType) {
+		ExpressionType oldExpressionType = expressionType;
+		expressionType = newExpressionType == null ? EXPRESSION_TYPE_EDEFAULT : newExpressionType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE, oldExpressionType, expressionType));
 	}
 
 	/**
@@ -266,14 +278,16 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
 				return getName();
-			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				return getExpression();
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATING_PROPERTY:
 				if (resolve) return getAnnotatingProperty();
 				return basicGetAnnotatingProperty();
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATED_PROPERTY:
 				if (resolve) return getAnnotatedProperty();
 				return basicGetAnnotatedProperty();
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE:
+				return getExpressionType();
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
+				return getExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,14 +303,17 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
 				setName((String)newValue);
 				return;
-			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				setExpression((Expression)newValue);
-				return;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATING_PROPERTY:
 				setAnnotatingProperty((EAttribute)newValue);
 				return;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATED_PROPERTY:
 				setAnnotatedProperty((EAttribute)newValue);
+				return;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE:
+				setExpressionType((ExpressionType)newValue);
+				return;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
+				setExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -313,14 +330,17 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				setExpression((Expression)null);
-				return;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATING_PROPERTY:
 				setAnnotatingProperty((EAttribute)null);
 				return;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATED_PROPERTY:
 				setAnnotatedProperty((EAttribute)null);
+				return;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE:
+				setExpressionType(EXPRESSION_TYPE_EDEFAULT);
+				return;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
+				setExpression(EXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -336,12 +356,14 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				return expression != null;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATING_PROPERTY:
 				return annotatingProperty != null;
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__ANNOTATED_PROPERTY:
 				return annotatedProperty != null;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE:
+				return expressionType != EXPRESSION_TYPE_EDEFAULT;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
+				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -358,6 +380,10 @@ public class PropertyMappingImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", expressionType: ");
+		result.append(expressionType);
+		result.append(", expression: ");
+		result.append(expression);
 		result.append(')');
 		return result.toString();
 	}

@@ -83,8 +83,12 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyMappingAdapter();
 			}
 			@Override
-			public Adapter caseExpression(Expression object) {
-				return createExpressionAdapter();
+			public Adapter caseCaseOf(CaseOf object) {
+				return createCaseOfAdapter();
+			}
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
 			}
 			@Override
 			public Adapter caseEModelElement(EModelElement object) {
@@ -161,16 +165,30 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.Expression <em>Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.CaseOf <em>Case Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ecoreAnnotation.Expression
+	 * @see ecoreAnnotation.CaseOf
 	 * @generated
 	 */
-	public Adapter createExpressionAdapter() {
+	public Adapter createCaseOfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecoreAnnotation.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
 		return null;
 	}
 

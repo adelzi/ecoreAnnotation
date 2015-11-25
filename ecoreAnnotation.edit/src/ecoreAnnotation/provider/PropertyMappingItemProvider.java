@@ -3,20 +3,13 @@
 package ecoreAnnotation.provider;
 
 
-import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
 import ecoreAnnotation.PropertyMapping;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -66,6 +59,8 @@ public class PropertyMappingItemProvider
 			addNamePropertyDescriptor(object);
 			addAnnotatingPropertyPropertyDescriptor(object);
 			addAnnotatedPropertyPropertyDescriptor(object);
+			addExpressionTypePropertyDescriptor(object);
+			addExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,33 +132,47 @@ public class PropertyMappingItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Expression Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION);
-		}
-		return childrenFeatures;
+	protected void addExpressionTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMapping_expressionType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMapping_expressionType_feature", "_UI_PropertyMapping_type"),
+				 EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyMapping_expression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyMapping_expression_feature", "_UI_PropertyMapping_type"),
+				 EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -205,10 +214,9 @@ public class PropertyMappingItemProvider
 
 		switch (notification.getFeatureID(PropertyMapping.class)) {
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION_TYPE:
 			case EcoreAnnotationPackage.PROPERTY_MAPPING__EXPRESSION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -224,11 +232,6 @@ public class PropertyMappingItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EcoreAnnotationPackage.Literals.PROPERTY_MAPPING__EXPRESSION,
-				 EcoreAnnotationFactory.eINSTANCE.createExpression()));
 	}
 
 	/**

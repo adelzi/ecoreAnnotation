@@ -87,13 +87,22 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int ANNOTATION_MODEL__CLASSES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Partial Inhiritences</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MODEL__PARTIAL_INHIRITENCES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Annotation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MODEL_FEATURE_COUNT = 2;
+	int ANNOTATION_MODEL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Annotation Model</em>' class.
@@ -103,6 +112,142 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANNOTATION_MODEL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ecoreAnnotation.impl.AnnotationImpl <em>Annotation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecoreAnnotation.impl.AnnotationImpl
+	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getAnnotation()
+	 * @generated
+	 */
+	int ANNOTATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__EANNOTATIONS = EcorePackage.ECLASSIFIER__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__NAME = EcorePackage.ECLASSIFIER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__INSTANCE_CLASS_NAME = EcorePackage.ECLASSIFIER__INSTANCE_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__INSTANCE_CLASS = EcorePackage.ECLASSIFIER__INSTANCE_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__DEFAULT_VALUE = EcorePackage.ECLASSIFIER__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__INSTANCE_TYPE_NAME = EcorePackage.ECLASSIFIER__INSTANCE_TYPE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__EPACKAGE = EcorePackage.ECLASSIFIER__EPACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ETYPE_PARAMETERS = EcorePackage.ECLASSIFIER__ETYPE_PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__PROPERTIES = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_FEATURE_COUNT = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___GET_EANNOTATION__STRING = EcorePackage.ECLASSIFIER___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Is Instance</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___IS_INSTANCE__OBJECT = EcorePackage.ECLASSIFIER___IS_INSTANCE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Classifier ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION___GET_CLASSIFIER_ID = EcorePackage.ECLASSIFIER___GET_CLASSIFIER_ID;
+
+	/**
+	 * The number of operations of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_OPERATION_COUNT = EcorePackage.ECLASSIFIER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ecoreAnnotation.impl.AnnotationClassImpl <em>Annotation Class</em>}' class.
@@ -121,7 +266,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__EANNOTATIONS = EcorePackage.ECLASSIFIER__EANNOTATIONS;
+	int ANNOTATION_CLASS__EANNOTATIONS = ANNOTATION__EANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -130,7 +275,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__NAME = EcorePackage.ECLASSIFIER__NAME;
+	int ANNOTATION_CLASS__NAME = ANNOTATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
@@ -139,7 +284,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__INSTANCE_CLASS_NAME = EcorePackage.ECLASSIFIER__INSTANCE_CLASS_NAME;
+	int ANNOTATION_CLASS__INSTANCE_CLASS_NAME = ANNOTATION__INSTANCE_CLASS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
@@ -148,7 +293,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__INSTANCE_CLASS = EcorePackage.ECLASSIFIER__INSTANCE_CLASS;
+	int ANNOTATION_CLASS__INSTANCE_CLASS = ANNOTATION__INSTANCE_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -157,7 +302,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__DEFAULT_VALUE = EcorePackage.ECLASSIFIER__DEFAULT_VALUE;
+	int ANNOTATION_CLASS__DEFAULT_VALUE = ANNOTATION__DEFAULT_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
@@ -166,7 +311,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__INSTANCE_TYPE_NAME = EcorePackage.ECLASSIFIER__INSTANCE_TYPE_NAME;
+	int ANNOTATION_CLASS__INSTANCE_TYPE_NAME = ANNOTATION__INSTANCE_TYPE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
@@ -175,7 +320,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__EPACKAGE = EcorePackage.ECLASSIFIER__EPACKAGE;
+	int ANNOTATION_CLASS__EPACKAGE = ANNOTATION__EPACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
@@ -184,7 +329,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__ETYPE_PARAMETERS = EcorePackage.ECLASSIFIER__ETYPE_PARAMETERS;
+	int ANNOTATION_CLASS__ETYPE_PARAMETERS = ANNOTATION__ETYPE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -193,7 +338,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__PROPERTIES = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 0;
+	int ANNOTATION_CLASS__PROPERTIES = ANNOTATION__PROPERTIES;
 
 	/**
 	 * The feature id for the '<em><b>Annotated Class</b></em>' reference.
@@ -202,7 +347,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__ANNOTATED_CLASS = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 1;
+	int ANNOTATION_CLASS__ANNOTATED_CLASS = ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Annotating Class</b></em>' reference.
@@ -211,7 +356,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS__ANNOTATING_CLASS = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 2;
+	int ANNOTATION_CLASS__ANNOTATING_CLASS = ANNOTATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Annotation Class</em>' class.
@@ -220,7 +365,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS_FEATURE_COUNT = EcorePackage.ECLASSIFIER_FEATURE_COUNT + 3;
+	int ANNOTATION_CLASS_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get EAnnotation</em>' operation.
@@ -229,7 +374,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS___GET_EANNOTATION__STRING = EcorePackage.ECLASSIFIER___GET_EANNOTATION__STRING;
+	int ANNOTATION_CLASS___GET_EANNOTATION__STRING = ANNOTATION___GET_EANNOTATION__STRING;
 
 	/**
 	 * The operation id for the '<em>Is Instance</em>' operation.
@@ -238,7 +383,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS___IS_INSTANCE__OBJECT = EcorePackage.ECLASSIFIER___IS_INSTANCE__OBJECT;
+	int ANNOTATION_CLASS___IS_INSTANCE__OBJECT = ANNOTATION___IS_INSTANCE__OBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Classifier ID</em>' operation.
@@ -247,7 +392,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS___GET_CLASSIFIER_ID = EcorePackage.ECLASSIFIER___GET_CLASSIFIER_ID;
+	int ANNOTATION_CLASS___GET_CLASSIFIER_ID = ANNOTATION___GET_CLASSIFIER_ID;
 
 	/**
 	 * The number of operations of the '<em>Annotation Class</em>' class.
@@ -256,7 +401,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_CLASS_OPERATION_COUNT = EcorePackage.ECLASSIFIER_OPERATION_COUNT + 0;
+	int ANNOTATION_CLASS_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ecoreAnnotation.impl.PropertyMappingImpl <em>Property Mapping</em>}' class.
@@ -278,22 +423,13 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int PROPERTY_MAPPING__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_MAPPING__EXPRESSION = 1;
-
-	/**
 	 * The feature id for the '<em><b>Annotating Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_MAPPING__ANNOTATING_PROPERTY = 2;
+	int PROPERTY_MAPPING__ANNOTATING_PROPERTY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Annotated Property</b></em>' reference.
@@ -302,7 +438,25 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_MAPPING__ANNOTATED_PROPERTY = 3;
+	int PROPERTY_MAPPING__ANNOTATED_PROPERTY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Expression Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_MAPPING__EXPRESSION_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_MAPPING__EXPRESSION = 4;
 
 	/**
 	 * The number of structural features of the '<em>Property Mapping</em>' class.
@@ -311,7 +465,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_MAPPING_FEATURE_COUNT = 4;
+	int PROPERTY_MAPPING_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Property Mapping</em>' class.
@@ -323,51 +477,158 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int PROPERTY_MAPPING_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ecoreAnnotation.impl.ExpressionImpl <em>Expression</em>}' class.
+	 * The meta object id for the '{@link ecoreAnnotation.impl.CaseOfImpl <em>Case Of</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ecoreAnnotation.impl.ExpressionImpl
-	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getExpression()
+	 * @see ecoreAnnotation.impl.CaseOfImpl
+	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getCaseOf()
 	 * @generated
 	 */
-	int EXPRESSION = 3;
+	int CASE_OF = 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__TYPE = 0;
+	int CASE_OF__EANNOTATIONS = ANNOTATION__EANNOTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__VALUE = 1;
+	int CASE_OF__NAME = ANNOTATION__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Expression</em>' class.
+	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 2;
+	int CASE_OF__INSTANCE_CLASS_NAME = ANNOTATION__INSTANCE_CLASS_NAME;
 
 	/**
-	 * The number of operations of the '<em>Expression</em>' class.
+	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_OPERATION_COUNT = 0;
+	int CASE_OF__INSTANCE_CLASS = ANNOTATION__INSTANCE_CLASS;
 
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__DEFAULT_VALUE = ANNOTATION__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__INSTANCE_TYPE_NAME = ANNOTATION__INSTANCE_TYPE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__EPACKAGE = ANNOTATION__EPACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__ETYPE_PARAMETERS = ANNOTATION__ETYPE_PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__PROPERTIES = ANNOTATION__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Super Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__SUPER_CLASS = ANNOTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Extended Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF__EXTENDED_CLASS = ANNOTATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Case Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF___GET_EANNOTATION__STRING = ANNOTATION___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Is Instance</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF___IS_INSTANCE__OBJECT = ANNOTATION___IS_INSTANCE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Classifier ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF___GET_CLASSIFIER_ID = ANNOTATION___GET_CLASSIFIER_ID;
+
+	/**
+	 * The number of operations of the '<em>Case Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CASE_OF_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ecoreAnnotation.ExpressionType <em>Expression Type</em>}' enum.
@@ -377,7 +638,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getExpressionType()
 	 * @generated
 	 */
-	int EXPRESSION_TYPE = 4;
+	int EXPRESSION_TYPE = 5;
 
 
 	/**
@@ -413,6 +674,17 @@ public interface EcoreAnnotationPackage extends EPackage {
 	EReference getAnnotationModel_Classes();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.AnnotationModel#getPartialInhiritences <em>Partial Inhiritences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Partial Inhiritences</em>'.
+	 * @see ecoreAnnotation.AnnotationModel#getPartialInhiritences()
+	 * @see #getAnnotationModel()
+	 * @generated
+	 */
+	EReference getAnnotationModel_PartialInhiritences();
+
+	/**
 	 * Returns the meta object for class '{@link ecoreAnnotation.AnnotationClass <em>Annotation Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,17 +693,6 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAnnotationClass();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.AnnotationClass#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Properties</em>'.
-	 * @see ecoreAnnotation.AnnotationClass#getProperties()
-	 * @see #getAnnotationClass()
-	 * @generated
-	 */
-	EReference getAnnotationClass_Properties();
 
 	/**
 	 * Returns the meta object for the reference '{@link ecoreAnnotation.AnnotationClass#getAnnotatedClass <em>Annotated Class</em>}'.
@@ -477,15 +738,68 @@ public interface EcoreAnnotationPackage extends EPackage {
 	EAttribute getPropertyMapping_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
+	 * @return the meta object for the attribute '<em>Expression</em>'.
 	 * @see ecoreAnnotation.PropertyMapping#getExpression()
 	 * @see #getPropertyMapping()
 	 * @generated
 	 */
-	EReference getPropertyMapping_Expression();
+	EAttribute getPropertyMapping_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link ecoreAnnotation.CaseOf <em>Case Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Case Of</em>'.
+	 * @see ecoreAnnotation.CaseOf
+	 * @generated
+	 */
+	EClass getCaseOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecoreAnnotation.CaseOf#getSuperClass <em>Super Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Class</em>'.
+	 * @see ecoreAnnotation.CaseOf#getSuperClass()
+	 * @see #getCaseOf()
+	 * @generated
+	 */
+	EReference getCaseOf_SuperClass();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecoreAnnotation.CaseOf#getExtendedClass <em>Extended Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extended Class</em>'.
+	 * @see ecoreAnnotation.CaseOf#getExtendedClass()
+	 * @see #getCaseOf()
+	 * @generated
+	 */
+	EReference getCaseOf_ExtendedClass();
+
+	/**
+	 * Returns the meta object for class '{@link ecoreAnnotation.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation</em>'.
+	 * @see ecoreAnnotation.Annotation
+	 * @generated
+	 */
+	EClass getAnnotation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.Annotation#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see ecoreAnnotation.Annotation#getProperties()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EReference getAnnotation_Properties();
 
 	/**
 	 * Returns the meta object for the reference '{@link ecoreAnnotation.PropertyMapping#getAnnotatingProperty <em>Annotating Property</em>}'.
@@ -510,36 +824,15 @@ public interface EcoreAnnotationPackage extends EPackage {
 	EReference getPropertyMapping_AnnotatedProperty();
 
 	/**
-	 * Returns the meta object for class '{@link ecoreAnnotation.Expression <em>Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link ecoreAnnotation.PropertyMapping#getExpressionType <em>Expression Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Expression</em>'.
-	 * @see ecoreAnnotation.Expression
+	 * @return the meta object for the attribute '<em>Expression Type</em>'.
+	 * @see ecoreAnnotation.PropertyMapping#getExpressionType()
+	 * @see #getPropertyMapping()
 	 * @generated
 	 */
-	EClass getExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ecoreAnnotation.Expression#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ecoreAnnotation.Expression#getType()
-	 * @see #getExpression()
-	 * @generated
-	 */
-	EAttribute getExpression_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ecoreAnnotation.Expression#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see ecoreAnnotation.Expression#getValue()
-	 * @see #getExpression()
-	 * @generated
-	 */
-	EAttribute getExpression_Value();
+	EAttribute getPropertyMapping_ExpressionType();
 
 	/**
 	 * Returns the meta object for enum '{@link ecoreAnnotation.ExpressionType <em>Expression Type</em>}'.
@@ -601,6 +894,14 @@ public interface EcoreAnnotationPackage extends EPackage {
 		EReference ANNOTATION_MODEL__CLASSES = eINSTANCE.getAnnotationModel_Classes();
 
 		/**
+		 * The meta object literal for the '<em><b>Partial Inhiritences</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION_MODEL__PARTIAL_INHIRITENCES = eINSTANCE.getAnnotationModel_PartialInhiritences();
+
+		/**
 		 * The meta object literal for the '{@link ecoreAnnotation.impl.AnnotationClassImpl <em>Annotation Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -609,14 +910,6 @@ public interface EcoreAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ANNOTATION_CLASS = eINSTANCE.getAnnotationClass();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ANNOTATION_CLASS__PROPERTIES = eINSTANCE.getAnnotationClass_Properties();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotated Class</b></em>' reference feature.
@@ -653,12 +946,56 @@ public interface EcoreAnnotationPackage extends EPackage {
 		EAttribute PROPERTY_MAPPING__NAME = eINSTANCE.getPropertyMapping_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_MAPPING__EXPRESSION = eINSTANCE.getPropertyMapping_Expression();
+		EAttribute PROPERTY_MAPPING__EXPRESSION = eINSTANCE.getPropertyMapping_Expression();
+
+		/**
+		 * The meta object literal for the '{@link ecoreAnnotation.impl.CaseOfImpl <em>Case Of</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecoreAnnotation.impl.CaseOfImpl
+		 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getCaseOf()
+		 * @generated
+		 */
+		EClass CASE_OF = eINSTANCE.getCaseOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CASE_OF__SUPER_CLASS = eINSTANCE.getCaseOf_SuperClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Extended Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CASE_OF__EXTENDED_CLASS = eINSTANCE.getCaseOf_ExtendedClass();
+
+		/**
+		 * The meta object literal for the '{@link ecoreAnnotation.impl.AnnotationImpl <em>Annotation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecoreAnnotation.impl.AnnotationImpl
+		 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getAnnotation()
+		 * @generated
+		 */
+		EClass ANNOTATION = eINSTANCE.getAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION__PROPERTIES = eINSTANCE.getAnnotation_Properties();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotating Property</b></em>' reference feature.
@@ -677,30 +1014,12 @@ public interface EcoreAnnotationPackage extends EPackage {
 		EReference PROPERTY_MAPPING__ANNOTATED_PROPERTY = eINSTANCE.getPropertyMapping_AnnotatedProperty();
 
 		/**
-		 * The meta object literal for the '{@link ecoreAnnotation.impl.ExpressionImpl <em>Expression</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ecoreAnnotation.impl.ExpressionImpl
-		 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getExpression()
-		 * @generated
-		 */
-		EClass EXPRESSION = eINSTANCE.getExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Expression Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXPRESSION__TYPE = eINSTANCE.getExpression_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
+		EAttribute PROPERTY_MAPPING__EXPRESSION_TYPE = eINSTANCE.getPropertyMapping_ExpressionType();
 
 		/**
 		 * The meta object literal for the '{@link ecoreAnnotation.ExpressionType <em>Expression Type</em>}' enum.

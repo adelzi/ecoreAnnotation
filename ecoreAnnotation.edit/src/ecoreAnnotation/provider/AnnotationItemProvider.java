@@ -3,7 +3,7 @@
 package ecoreAnnotation.provider;
 
 
-import ecoreAnnotation.AnnotationModel;
+import ecoreAnnotation.Annotation;
 import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
 
@@ -17,38 +17,25 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.ecore.provider.EClassifierItemProvider;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ecoreAnnotation.AnnotationModel} object.
+ * This is the item provider adapter for a {@link ecoreAnnotation.Annotation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnnotationModelItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class AnnotationItemProvider extends EClassifierItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnnotationModelItemProvider(AdapterFactory adapterFactory) {
+	public AnnotationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,54 +50,8 @@ public class AnnotationModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addPartialInhiritencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AnnotationModel_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotationModel_name_feature", "_UI_AnnotationModel_type"),
-				 EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Partial Inhiritences feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPartialInhiritencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AnnotationModel_partialInhiritences_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotationModel_partialInhiritences_feature", "_UI_AnnotationModel_type"),
-				 EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -125,8 +66,7 @@ public class AnnotationModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -145,14 +85,14 @@ public class AnnotationModelItemProvider
 	}
 
 	/**
-	 * This returns AnnotationModel.gif.
+	 * This returns Annotation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnnotationModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Annotation"));
 	}
 
 	/**
@@ -163,10 +103,10 @@ public class AnnotationModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AnnotationModel)object).getName();
+		String label = ((Annotation)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AnnotationModel_type") :
-			getString("_UI_AnnotationModel_type") + " " + label;
+			getString("_UI_Annotation_type") :
+			getString("_UI_Annotation_type") + " " + label;
 	}
 	
 
@@ -181,12 +121,8 @@ public class AnnotationModelItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AnnotationModel.class)) {
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
+		switch (notification.getFeatureID(Annotation.class)) {
+			case EcoreAnnotationPackage.ANNOTATION__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,13 +142,8 @@ public class AnnotationModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES,
-				 EcoreAnnotationFactory.eINSTANCE.createAnnotationClass()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES,
-				 EcoreAnnotationFactory.eINSTANCE.createCaseOf()));
+				(EcoreAnnotationPackage.Literals.ANNOTATION__PROPERTIES,
+				 EcoreAnnotationFactory.eINSTANCE.createPropertyMapping()));
 	}
 
 	/**

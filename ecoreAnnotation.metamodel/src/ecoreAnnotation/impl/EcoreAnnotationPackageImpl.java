@@ -2,11 +2,12 @@
  */
 package ecoreAnnotation.impl;
 
+import ecoreAnnotation.Annotation;
 import ecoreAnnotation.AnnotationClass;
 import ecoreAnnotation.AnnotationModel;
+import ecoreAnnotation.CaseOf;
 import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
-import ecoreAnnotation.Expression;
 import ecoreAnnotation.ExpressionType;
 import ecoreAnnotation.PropertyMapping;
 import org.eclipse.emf.ecore.EAttribute;
@@ -50,7 +51,14 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass expressionEClass = null;
+	private EClass caseOfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +163,15 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAnnotationModel_PartialInhiritences() {
+		return (EReference)annotationModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAnnotationClass() {
 		return annotationClassEClass;
 	}
@@ -164,7 +181,7 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnnotationClass_Properties() {
+	public EReference getAnnotationClass_AnnotatedClass() {
 		return (EReference)annotationClassEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -173,17 +190,8 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnnotationClass_AnnotatedClass() {
-		return (EReference)annotationClassEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAnnotationClass_AnnotatingClass() {
-		return (EReference)annotationClassEClass.getEStructuralFeatures().get(2);
+		return (EReference)annotationClassEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -209,8 +217,53 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPropertyMapping_Expression() {
-		return (EReference)propertyMappingEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPropertyMapping_Expression() {
+		return (EAttribute)propertyMappingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCaseOf() {
+		return caseOfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCaseOf_SuperClass() {
+		return (EReference)caseOfEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCaseOf_ExtendedClass() {
+		return (EReference)caseOfEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnnotation_Properties() {
+		return (EReference)annotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -219,7 +272,7 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * @generated
 	 */
 	public EReference getPropertyMapping_AnnotatingProperty() {
-		return (EReference)propertyMappingEClass.getEStructuralFeatures().get(2);
+		return (EReference)propertyMappingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -228,7 +281,7 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * @generated
 	 */
 	public EReference getPropertyMapping_AnnotatedProperty() {
-		return (EReference)propertyMappingEClass.getEStructuralFeatures().get(3);
+		return (EReference)propertyMappingEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -236,26 +289,8 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExpression() {
-		return expressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExpression_Type() {
-		return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExpression_Value() {
-		return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPropertyMapping_ExpressionType() {
+		return (EAttribute)propertyMappingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -298,21 +333,25 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 		annotationModelEClass = createEClass(ANNOTATION_MODEL);
 		createEAttribute(annotationModelEClass, ANNOTATION_MODEL__NAME);
 		createEReference(annotationModelEClass, ANNOTATION_MODEL__CLASSES);
+		createEReference(annotationModelEClass, ANNOTATION_MODEL__PARTIAL_INHIRITENCES);
 
 		annotationClassEClass = createEClass(ANNOTATION_CLASS);
-		createEReference(annotationClassEClass, ANNOTATION_CLASS__PROPERTIES);
 		createEReference(annotationClassEClass, ANNOTATION_CLASS__ANNOTATED_CLASS);
 		createEReference(annotationClassEClass, ANNOTATION_CLASS__ANNOTATING_CLASS);
 
 		propertyMappingEClass = createEClass(PROPERTY_MAPPING);
 		createEAttribute(propertyMappingEClass, PROPERTY_MAPPING__NAME);
-		createEReference(propertyMappingEClass, PROPERTY_MAPPING__EXPRESSION);
 		createEReference(propertyMappingEClass, PROPERTY_MAPPING__ANNOTATING_PROPERTY);
 		createEReference(propertyMappingEClass, PROPERTY_MAPPING__ANNOTATED_PROPERTY);
+		createEAttribute(propertyMappingEClass, PROPERTY_MAPPING__EXPRESSION_TYPE);
+		createEAttribute(propertyMappingEClass, PROPERTY_MAPPING__EXPRESSION);
 
-		expressionEClass = createEClass(EXPRESSION);
-		createEAttribute(expressionEClass, EXPRESSION__TYPE);
-		createEAttribute(expressionEClass, EXPRESSION__VALUE);
+		caseOfEClass = createEClass(CASE_OF);
+		createEReference(caseOfEClass, CASE_OF__SUPER_CLASS);
+		createEReference(caseOfEClass, CASE_OF__EXTENDED_CLASS);
+
+		annotationEClass = createEClass(ANNOTATION);
+		createEReference(annotationEClass, ANNOTATION__PROPERTIES);
 
 		// Create enums
 		expressionTypeEEnum = createEEnum(EXPRESSION_TYPE);
@@ -349,27 +388,33 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		annotationClassEClass.getESuperTypes().add(theEcorePackage.getEClassifier());
+		annotationClassEClass.getESuperTypes().add(this.getAnnotation());
+		caseOfEClass.getESuperTypes().add(this.getAnnotation());
+		annotationEClass.getESuperTypes().add(theEcorePackage.getEClassifier());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(annotationModelEClass, AnnotationModel.class, "AnnotationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnnotationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotationModel_Classes(), this.getAnnotationClass(), null, "classes", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotationModel_PartialInhiritences(), this.getCaseOf(), null, "partialInhiritences", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationClassEClass, AnnotationClass.class, "AnnotationClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotationClass_Properties(), this.getPropertyMapping(), null, "properties", null, 0, -1, AnnotationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotationClass_AnnotatedClass(), theEcorePackage.getEClass(), null, "annotatedClass", null, 1, 1, AnnotationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotationClass_AnnotatingClass(), theEcorePackage.getEClass(), null, "annotatingClass", null, 1, 1, AnnotationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyMappingEClass, PropertyMapping.class, "PropertyMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyMapping_Name(), ecorePackage.getEString(), "name", null, 0, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropertyMapping_Expression(), this.getExpression(), null, "expression", null, 1, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropertyMapping_AnnotatingProperty(), theEcorePackage.getEAttribute(), null, "annotatingProperty", null, 1, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropertyMapping_AnnotatedProperty(), theEcorePackage.getEAttribute(), null, "annotatedProperty", null, 1, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyMapping_ExpressionType(), this.getExpressionType(), "expressionType", null, 0, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyMapping_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, PropertyMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpression_Type(), this.getExpressionType(), "type", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExpression_Value(), ecorePackage.getEString(), "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(caseOfEClass, CaseOf.class, "CaseOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCaseOf_SuperClass(), theEcorePackage.getEClass(), null, "superClass", null, 1, 1, CaseOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCaseOf_ExtendedClass(), theEcorePackage.getEClass(), null, "extendedClass", null, 1, 1, CaseOf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(annotationEClass, Annotation.class, "Annotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnnotation_Properties(), this.getPropertyMapping(), null, "properties", null, 0, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(expressionTypeEEnum, ExpressionType.class, "ExpressionType");

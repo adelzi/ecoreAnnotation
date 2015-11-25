@@ -16,21 +16,25 @@
     <genClasses ecoreClass="ecoreAnnotation.ecore#//AnnotationModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//AnnotationModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/classes"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/partialInhiritences"/>
     </genClasses>
     <genClasses ecoreClass="ecoreAnnotation.ecore#//AnnotationClass">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationClass/properties"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationClass/annotatedClass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationClass/annotatingClass"/>
     </genClasses>
     <genClasses ecoreClass="ecoreAnnotation.ecore#//PropertyMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//PropertyMapping/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//PropertyMapping/expression"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//PropertyMapping/annotatingProperty"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//PropertyMapping/annotatedProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//PropertyMapping/expressionType"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//PropertyMapping/expression"/>
     </genClasses>
-    <genClasses ecoreClass="ecoreAnnotation.ecore#//Expression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//Expression/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//Expression/value"/>
+    <genClasses ecoreClass="ecoreAnnotation.ecore#//CaseOf">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//CaseOf/superClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//CaseOf/extendedClass"/>
+    </genClasses>
+    <genClasses ecoreClass="ecoreAnnotation.ecore#//Annotation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//Annotation/properties"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

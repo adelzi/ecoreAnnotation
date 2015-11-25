@@ -60,7 +60,7 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 			case EcoreAnnotationPackage.ANNOTATION_MODEL: return createAnnotationModel();
 			case EcoreAnnotationPackage.ANNOTATION_CLASS: return createAnnotationClass();
 			case EcoreAnnotationPackage.PROPERTY_MAPPING: return createPropertyMapping();
-			case EcoreAnnotationPackage.EXPRESSION: return createExpression();
+			case EcoreAnnotationPackage.CASE_OF: return createCaseOf();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -131,9 +131,9 @@ public class EcoreAnnotationFactoryImpl extends EFactoryImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression createExpression() {
-		ExpressionImpl expression = new ExpressionImpl();
-		return expression;
+	public CaseOf createCaseOf() {
+		CaseOfImpl caseOf = new CaseOfImpl();
+		return caseOf;
 	}
 
 	/**

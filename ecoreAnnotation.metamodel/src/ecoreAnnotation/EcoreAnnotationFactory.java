@@ -49,13 +49,13 @@ public interface EcoreAnnotationFactory extends EFactory {
 	PropertyMapping createPropertyMapping();
 
 	/**
-	 * Returns a new object of class '<em>Expression</em>'.
+	 * Returns a new object of class '<em>Case Of</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression</em>'.
+	 * @return a new object of class '<em>Case Of</em>'.
 	 * @generated
 	 */
-	Expression createExpression();
+	CaseOf createCaseOf();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -3,50 +3,32 @@
 package ecoreAnnotation.provider;
 
 
+import ecoreAnnotation.CaseOf;
 import ecoreAnnotation.EcoreAnnotationPackage;
-import ecoreAnnotation.Expression;
 
-import ecoreAnnotation.ExpressionType;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ecoreAnnotation.Expression} object.
+ * This is the item provider adapter for a {@link ecoreAnnotation.CaseOf} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExpressionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class CaseOfItemProvider extends AnnotationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExpressionItemProvider(AdapterFactory adapterFactory) {
+	public CaseOfItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,65 +43,65 @@ public class ExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addSuperClassPropertyDescriptor(object);
+			addExtendedClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Super Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addSuperClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Expression_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_type_feature", "_UI_Expression_type"),
-				 EcoreAnnotationPackage.Literals.EXPRESSION__TYPE,
+				 getString("_UI_CaseOf_superClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CaseOf_superClass_feature", "_UI_CaseOf_type"),
+				 EcoreAnnotationPackage.Literals.CASE_OF__SUPER_CLASS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Extended Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addExtendedClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Expression_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Expression_value_feature", "_UI_Expression_type"),
-				 EcoreAnnotationPackage.Literals.EXPRESSION__VALUE,
+				 getString("_UI_CaseOf_extendedClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CaseOf_extendedClass_feature", "_UI_CaseOf_type"),
+				 EcoreAnnotationPackage.Literals.CASE_OF__EXTENDED_CLASS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns Expression.gif.
+	 * This returns CaseOf.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Expression"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CaseOf"));
 	}
 
 	/**
@@ -130,11 +112,10 @@ public class ExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ExpressionType labelValue = ((Expression)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((CaseOf)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Expression_type") :
-			getString("_UI_Expression_type") + " " + label;
+			getString("_UI_CaseOf_type") :
+			getString("_UI_CaseOf_type") + " " + label;
 	}
 	
 
@@ -148,13 +129,6 @@ public class ExpressionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Expression.class)) {
-			case EcoreAnnotationPackage.EXPRESSION__TYPE:
-			case EcoreAnnotationPackage.EXPRESSION__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -168,17 +142,6 @@ public class ExpressionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return EcoreAnnotationEditPlugin.INSTANCE;
 	}
 
 }

@@ -14,9 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ecoreAnnotation.PropertyMapping#getName <em>Name</em>}</li>
- *   <li>{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}</li>
  *   <li>{@link ecoreAnnotation.PropertyMapping#getAnnotatingProperty <em>Annotating Property</em>}</li>
  *   <li>{@link ecoreAnnotation.PropertyMapping#getAnnotatedProperty <em>Annotated Property</em>}</li>
+ *   <li>{@link ecoreAnnotation.PropertyMapping#getExpressionType <em>Expression Type</em>}</li>
+ *   <li>{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,30 +53,30 @@ public interface PropertyMapping extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expression</em>' containment reference.
-	 * @see #setExpression(Expression)
+	 * @return the value of the '<em>Expression</em>' attribute.
+	 * @see #setExpression(String)
 	 * @see ecoreAnnotation.EcoreAnnotationPackage#getPropertyMapping_Expression()
-	 * @model containment="true" required="true"
+	 * @model
 	 * @generated
 	 */
-	Expression getExpression();
+	String getExpression();
 
 	/**
-	 * Sets the value of the '{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}' containment reference.
+	 * Sets the value of the '{@link ecoreAnnotation.PropertyMapping#getExpression <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expression</em>' containment reference.
+	 * @param value the new value of the '<em>Expression</em>' attribute.
 	 * @see #getExpression()
 	 * @generated
 	 */
-	void setExpression(Expression value);
+	void setExpression(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Annotating Property</b></em>' reference.
@@ -128,5 +129,34 @@ public interface PropertyMapping extends EObject {
 	 * @generated
 	 */
 	void setAnnotatedProperty(EAttribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Expression Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link ecoreAnnotation.ExpressionType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expression Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expression Type</em>' attribute.
+	 * @see ecoreAnnotation.ExpressionType
+	 * @see #setExpressionType(ExpressionType)
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getPropertyMapping_ExpressionType()
+	 * @model
+	 * @generated
+	 */
+	ExpressionType getExpressionType();
+
+	/**
+	 * Sets the value of the '{@link ecoreAnnotation.PropertyMapping#getExpressionType <em>Expression Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression Type</em>' attribute.
+	 * @see ecoreAnnotation.ExpressionType
+	 * @see #getExpressionType()
+	 * @generated
+	 */
+	void setExpressionType(ExpressionType value);
 
 } // PropertyMapping

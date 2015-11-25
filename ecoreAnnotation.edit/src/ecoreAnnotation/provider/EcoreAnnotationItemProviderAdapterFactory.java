@@ -141,26 +141,26 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.Expression} instances.
+	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.CaseOf} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExpressionItemProvider expressionItemProvider;
+	protected CaseOfItemProvider caseOfItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ecoreAnnotation.Expression}.
+	 * This creates an adapter for a {@link ecoreAnnotation.CaseOf}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createExpressionAdapter() {
-		if (expressionItemProvider == null) {
-			expressionItemProvider = new ExpressionItemProvider(this);
+	public Adapter createCaseOfAdapter() {
+		if (caseOfItemProvider == null) {
+			caseOfItemProvider = new CaseOfItemProvider(this);
 		}
 
-		return expressionItemProvider;
+		return caseOfItemProvider;
 	}
 
 	/**
@@ -265,7 +265,7 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 		if (annotationModelItemProvider != null) annotationModelItemProvider.dispose();
 		if (annotationClassItemProvider != null) annotationClassItemProvider.dispose();
 		if (propertyMappingItemProvider != null) propertyMappingItemProvider.dispose();
-		if (expressionItemProvider != null) expressionItemProvider.dispose();
+		if (caseOfItemProvider != null) caseOfItemProvider.dispose();
 	}
 
 }
