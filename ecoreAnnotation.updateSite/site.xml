@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/ecoreAnnotation.feature_1.0.0.201511251743.jar" id="ecoreAnnotation.feature" version="1.0.0.201511251743">
+      <category name="Ecore Annotation"/>
+   </feature>
+   <category-def name="Ecore Annotation" label="Ecore Annotation"/>
+</site>
