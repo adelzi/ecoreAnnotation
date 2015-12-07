@@ -65,6 +65,7 @@ public class AnnotationModelItemProvider
 
 			addNamePropertyDescriptor(object);
 			addPartialInhiritencesPropertyDescriptor(object);
+			addEquivalencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class AnnotationModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Equivalences feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEquivalencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AnnotationModel_equivalences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnnotationModel_equivalences_feature", "_UI_AnnotationModel_type"),
+				 EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__EQUIVALENCES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -127,6 +150,7 @@ public class AnnotationModelItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES);
 			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__EQUIVALENCES);
 		}
 		return childrenFeatures;
 	}
@@ -187,6 +211,7 @@ public class AnnotationModelItemProvider
 				return;
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,6 +238,11 @@ public class AnnotationModelItemProvider
 			(createChildParameter
 				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES,
 				 EcoreAnnotationFactory.eINSTANCE.createCaseOf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__EQUIVALENCES,
+				 EcoreAnnotationFactory.eINSTANCE.createEquivalence()));
 	}
 
 	/**

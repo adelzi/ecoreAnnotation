@@ -164,6 +164,29 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ecoreAnnotation.Equivalence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EquivalenceItemProvider equivalenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ecoreAnnotation.Equivalence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEquivalenceAdapter() {
+		if (equivalenceItemProvider == null) {
+			equivalenceItemProvider = new EquivalenceItemProvider(this);
+		}
+
+		return equivalenceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class EcoreAnnotationItemProviderAdapterFactory extends EcoreAnnotationAd
 		if (annotationClassItemProvider != null) annotationClassItemProvider.dispose();
 		if (propertyMappingItemProvider != null) propertyMappingItemProvider.dispose();
 		if (caseOfItemProvider != null) caseOfItemProvider.dispose();
+		if (equivalenceItemProvider != null) equivalenceItemProvider.dispose();
 	}
 
 }
