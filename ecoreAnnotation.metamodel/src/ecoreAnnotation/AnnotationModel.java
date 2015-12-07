@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ecoreAnnotation.AnnotationModel#getName <em>Name</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getClasses <em>Classes</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getPartialInhiritences <em>Partial Inhiritences</em>}</li>
+ *   <li>{@link ecoreAnnotation.AnnotationModel#getEquivalences <em>Equivalences</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +83,21 @@ public interface AnnotationModel extends EObject {
 	 * @generated
 	 */
 	EList<CaseOf> getPartialInhiritences();
+
+	/**
+	 * Returns the value of the '<em><b>Equivalences</b></em>' containment reference list.
+	 * The list contents are of type {@link ecoreAnnotation.Equivalence}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Equivalences</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Equivalences</em>' containment reference list.
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getAnnotationModel_Equivalences()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Equivalence> getEquivalences();
 
 } // AnnotationModel

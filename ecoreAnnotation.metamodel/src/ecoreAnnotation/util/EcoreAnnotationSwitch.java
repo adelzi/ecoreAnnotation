@@ -110,6 +110,16 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EcoreAnnotationPackage.EQUIVALENCE: {
+				Equivalence equivalence = (Equivalence)theEObject;
+				T result = caseEquivalence(equivalence);
+				if (result == null) result = caseAnnotation(equivalence);
+				if (result == null) result = caseEClassifier(equivalence);
+				if (result == null) result = caseENamedElement(equivalence);
+				if (result == null) result = caseEModelElement(equivalence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -186,6 +196,21 @@ public class EcoreAnnotationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnnotation(Annotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Equivalence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Equivalence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEquivalence(Equivalence object) {
 		return null;
 	}
 

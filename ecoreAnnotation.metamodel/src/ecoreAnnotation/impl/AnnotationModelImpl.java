@@ -6,6 +6,7 @@ import ecoreAnnotation.AnnotationClass;
 import ecoreAnnotation.AnnotationModel;
 import ecoreAnnotation.CaseOf;
 import ecoreAnnotation.EcoreAnnotationPackage;
+import ecoreAnnotation.Equivalence;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getClasses <em>Classes</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getPartialInhiritences <em>Partial Inhiritences</em>}</li>
+ *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getEquivalences <em>Equivalences</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +74,16 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<CaseOf> partialInhiritences;
+
+	/**
+	 * The cached value of the '{@link #getEquivalences() <em>Equivalences</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEquivalences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Equivalence> equivalences;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,6 +154,18 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Equivalence> getEquivalences() {
+		if (equivalences == null) {
+			equivalences = new EObjectContainmentEList<Equivalence>(Equivalence.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES);
+		}
+		return equivalences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -149,6 +173,8 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return ((InternalEList<?>)getPartialInhiritences()).basicRemove(otherEnd, msgs);
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+				return ((InternalEList<?>)getEquivalences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,6 +193,8 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 				return getClasses();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return getPartialInhiritences();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+				return getEquivalences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,6 +219,10 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 				getPartialInhiritences().clear();
 				getPartialInhiritences().addAll((Collection<? extends CaseOf>)newValue);
 				return;
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+				getEquivalences().clear();
+				getEquivalences().addAll((Collection<? extends Equivalence>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -212,6 +244,9 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				getPartialInhiritences().clear();
 				return;
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+				getEquivalences().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -230,6 +265,8 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 				return classes != null && !classes.isEmpty();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return partialInhiritences != null && !partialInhiritences.isEmpty();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+				return equivalences != null && !equivalences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -91,6 +91,10 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createAnnotationAdapter();
 			}
 			@Override
+			public Adapter caseEquivalence(Equivalence object) {
+				return createEquivalenceAdapter();
+			}
+			@Override
 			public Adapter caseEModelElement(EModelElement object) {
 				return createEModelElementAdapter();
 			}
@@ -189,6 +193,20 @@ public class EcoreAnnotationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ecoreAnnotation.Equivalence <em>Equivalence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ecoreAnnotation.Equivalence
+	 * @generated
+	 */
+	public Adapter createEquivalenceAdapter() {
 		return null;
 	}
 

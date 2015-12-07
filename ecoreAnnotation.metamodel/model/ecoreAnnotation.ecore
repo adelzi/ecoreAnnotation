@@ -8,6 +8,8 @@
         eType="#//AnnotationClass" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partialInhiritences" upperBound="-1"
         eType="#//CaseOf" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="equivalences" upperBound="-1"
+        eType="#//Equivalence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationClass" eSuperTypes="#//Annotation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedClass" lowerBound="1"
@@ -38,5 +40,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Annotation" abstract="true" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClassifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//PropertyMapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equivalence" eSuperTypes="#//Annotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class1" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class2" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -96,13 +96,22 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int ANNOTATION_MODEL__PARTIAL_INHIRITENCES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Equivalences</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MODEL__EQUIVALENCES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Annotation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MODEL_FEATURE_COUNT = 3;
+	int ANNOTATION_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Annotation Model</em>' class.
@@ -631,6 +640,160 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int CASE_OF_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ecoreAnnotation.impl.EquivalenceImpl <em>Equivalence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ecoreAnnotation.impl.EquivalenceImpl
+	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getEquivalence()
+	 * @generated
+	 */
+	int EQUIVALENCE = 5;
+
+	/**
+	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__EANNOTATIONS = ANNOTATION__EANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__NAME = ANNOTATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__INSTANCE_CLASS_NAME = ANNOTATION__INSTANCE_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__INSTANCE_CLASS = ANNOTATION__INSTANCE_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__DEFAULT_VALUE = ANNOTATION__DEFAULT_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__INSTANCE_TYPE_NAME = ANNOTATION__INSTANCE_TYPE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__EPACKAGE = ANNOTATION__EPACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__ETYPE_PARAMETERS = ANNOTATION__ETYPE_PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__PROPERTIES = ANNOTATION__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Class1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__CLASS1 = ANNOTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Class2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE__CLASS2 = ANNOTATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Equivalence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get EAnnotation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE___GET_EANNOTATION__STRING = ANNOTATION___GET_EANNOTATION__STRING;
+
+	/**
+	 * The operation id for the '<em>Is Instance</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE___IS_INSTANCE__OBJECT = ANNOTATION___IS_INSTANCE__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Classifier ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE___GET_CLASSIFIER_ID = ANNOTATION___GET_CLASSIFIER_ID;
+
+	/**
+	 * The number of operations of the '<em>Equivalence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUIVALENCE_OPERATION_COUNT = ANNOTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ecoreAnnotation.ExpressionType <em>Expression Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,7 +801,7 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getExpressionType()
 	 * @generated
 	 */
-	int EXPRESSION_TYPE = 5;
+	int EXPRESSION_TYPE = 6;
 
 
 	/**
@@ -683,6 +846,17 @@ public interface EcoreAnnotationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAnnotationModel_PartialInhiritences();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.AnnotationModel#getEquivalences <em>Equivalences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Equivalences</em>'.
+	 * @see ecoreAnnotation.AnnotationModel#getEquivalences()
+	 * @see #getAnnotationModel()
+	 * @generated
+	 */
+	EReference getAnnotationModel_Equivalences();
 
 	/**
 	 * Returns the meta object for class '{@link ecoreAnnotation.AnnotationClass <em>Annotation Class</em>}'.
@@ -802,6 +976,38 @@ public interface EcoreAnnotationPackage extends EPackage {
 	EReference getAnnotation_Properties();
 
 	/**
+	 * Returns the meta object for class '{@link ecoreAnnotation.Equivalence <em>Equivalence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Equivalence</em>'.
+	 * @see ecoreAnnotation.Equivalence
+	 * @generated
+	 */
+	EClass getEquivalence();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecoreAnnotation.Equivalence#getClass1 <em>Class1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Class1</em>'.
+	 * @see ecoreAnnotation.Equivalence#getClass1()
+	 * @see #getEquivalence()
+	 * @generated
+	 */
+	EReference getEquivalence_Class1();
+
+	/**
+	 * Returns the meta object for the reference '{@link ecoreAnnotation.Equivalence#getClass2 <em>Class2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Class2</em>'.
+	 * @see ecoreAnnotation.Equivalence#getClass2()
+	 * @see #getEquivalence()
+	 * @generated
+	 */
+	EReference getEquivalence_Class2();
+
+	/**
 	 * Returns the meta object for the reference '{@link ecoreAnnotation.PropertyMapping#getAnnotatingProperty <em>Annotating Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -902,6 +1108,14 @@ public interface EcoreAnnotationPackage extends EPackage {
 		EReference ANNOTATION_MODEL__PARTIAL_INHIRITENCES = eINSTANCE.getAnnotationModel_PartialInhiritences();
 
 		/**
+		 * The meta object literal for the '<em><b>Equivalences</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION_MODEL__EQUIVALENCES = eINSTANCE.getAnnotationModel_Equivalences();
+
+		/**
 		 * The meta object literal for the '{@link ecoreAnnotation.impl.AnnotationClassImpl <em>Annotation Class</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -996,6 +1210,32 @@ public interface EcoreAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANNOTATION__PROPERTIES = eINSTANCE.getAnnotation_Properties();
+
+		/**
+		 * The meta object literal for the '{@link ecoreAnnotation.impl.EquivalenceImpl <em>Equivalence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ecoreAnnotation.impl.EquivalenceImpl
+		 * @see ecoreAnnotation.impl.EcoreAnnotationPackageImpl#getEquivalence()
+		 * @generated
+		 */
+		EClass EQUIVALENCE = eINSTANCE.getEquivalence();
+
+		/**
+		 * The meta object literal for the '<em><b>Class1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUIVALENCE__CLASS1 = eINSTANCE.getEquivalence_Class1();
+
+		/**
+		 * The meta object literal for the '<em><b>Class2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUIVALENCE__CLASS2 = eINSTANCE.getEquivalence_Class2();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotating Property</b></em>' reference feature.
