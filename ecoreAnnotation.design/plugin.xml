@@ -7,4 +7,11 @@
 	       name="extendEcore">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="ecoreAnnotation.externalActions.ImportAndCopyEClassJavaAction"
+           id="ecoreAnnotation.externalActions.importAndCopyEClassJavaAction">
+     </javaActions>
+  </extension>
 </plugin>

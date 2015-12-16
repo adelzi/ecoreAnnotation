@@ -37,7 +37,25 @@
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:markForAutosize">
                   <subModelOperations xsi:type="tool:If" conditionExpression="service:isEClass">
                     <subModelOperations xsi:type="tool_1:CreateView" containerViewExpression="var:containerView">
-                      <mapping xsi:type="description_1:ContainerMapping" href="../../org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+                      <mapping xsi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyEClass" label="Copy EClass" candidatesExpression="service:getValidsForDiagram(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="feature:eContents" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:For" expression="var:element">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:markForAutosize">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="service:isEClass">
+                    <subModelOperations xsi:type="tool:ExternalJavaAction" name="ImportAndCopyEClass" id="ecoreAnnotation.externalActions.importAndCopyEClassJavaAction">
+                      <parameters name="annotationModel" value="var:container"/>
+                      <parameters name="classes" value="var:element"/>
+                      <parameters name="containerView" value="var:containerView"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
@@ -53,7 +71,7 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[sourceView.eContainer().oclAsType(DSemanticDiagram).target/]">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="ecoreAnnotation.AnnotationClass" referenceName="classes">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="ecoreAnnotation.AnnotationClass" referenceName="annotationClasses">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="A"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="annotatingClass" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="annotatedClass" valueExpression="var:target"/>
@@ -213,5 +231,6 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="ecoreAnnotation.services.EcoreAnnotationServices"/>
   </ownedViewpoints>
 </description:Group>
