@@ -3,7 +3,6 @@
 package ecoreAnnotation;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,9 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getName <em>Name</em>}</li>
- *   <li>{@link ecoreAnnotation.AnnotationModel#getClasses <em>Classes</em>}</li>
+ *   <li>{@link ecoreAnnotation.AnnotationModel#getAnnotationClasses <em>Annotation Classes</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getPartialInhiritences <em>Partial Inhiritences</em>}</li>
  *   <li>{@link ecoreAnnotation.AnnotationModel#getEquivalences <em>Equivalences</em>}</li>
+ *   <li>{@link ecoreAnnotation.AnnotationModel#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,8 +53,24 @@ public interface AnnotationModel extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Annotation Classes</b></em>' containment reference list.
 	 * The list contents are of type {@link ecoreAnnotation.AnnotationClass}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotation Classes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotation Classes</em>' containment reference list.
+	 * @see ecoreAnnotation.EcoreAnnotationPackage#getAnnotationModel_AnnotationClasses()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<AnnotationClass> getAnnotationClasses();
+
+	/**
+	 * Returns the value of the '<em><b>Classes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Classes</em>' containment reference list isn't clear,
@@ -66,7 +82,7 @@ public interface AnnotationModel extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<AnnotationClass> getClasses();
+	EList<org.eclipse.emf.ecore.EClass> getClasses();
 
 	/**
 	 * Returns the value of the '<em><b>Partial Inhiritences</b></em>' containment reference list.

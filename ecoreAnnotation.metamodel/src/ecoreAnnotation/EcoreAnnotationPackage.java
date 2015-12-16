@@ -78,13 +78,13 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int ANNOTATION_MODEL__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Annotation Classes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MODEL__CLASSES = 1;
+	int ANNOTATION_MODEL__ANNOTATION_CLASSES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Partial Inhiritences</b></em>' containment reference list.
@@ -105,13 +105,22 @@ public interface EcoreAnnotationPackage extends EPackage {
 	int ANNOTATION_MODEL__EQUIVALENCES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Classes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MODEL__CLASSES = 4;
+
+	/**
 	 * The number of structural features of the '<em>Annotation Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_MODEL_FEATURE_COUNT = 4;
+	int ANNOTATION_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Annotation Model</em>' class.
@@ -826,6 +835,17 @@ public interface EcoreAnnotationPackage extends EPackage {
 	EAttribute getAnnotationModel_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.AnnotationModel#getAnnotationClasses <em>Annotation Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotation Classes</em>'.
+	 * @see ecoreAnnotation.AnnotationModel#getAnnotationClasses()
+	 * @see #getAnnotationModel()
+	 * @generated
+	 */
+	EReference getAnnotationModel_AnnotationClasses();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link ecoreAnnotation.AnnotationModel#getClasses <em>Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1090,6 +1110,14 @@ public interface EcoreAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANNOTATION_MODEL__NAME = eINSTANCE.getAnnotationModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotation Classes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION_MODEL__ANNOTATION_CLASSES = eINSTANCE.getAnnotationModel_AnnotationClasses();
 
 		/**
 		 * The meta object literal for the '<em><b>Classes</b></em>' containment reference list feature.

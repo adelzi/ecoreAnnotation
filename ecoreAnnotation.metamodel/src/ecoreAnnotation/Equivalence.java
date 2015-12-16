@@ -4,6 +4,7 @@ package ecoreAnnotation;
 
 import org.eclipse.emf.ecore.EClass;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Equivalence</b></em>'.

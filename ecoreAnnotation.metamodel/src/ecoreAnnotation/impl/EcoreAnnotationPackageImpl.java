@@ -162,8 +162,17 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnnotationModel_Classes() {
+	public EReference getAnnotationModel_AnnotationClasses() {
 		return (EReference)annotationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnnotationModel_Classes() {
+		return (EReference)annotationModelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -376,9 +385,10 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 		// Create classes and their features
 		annotationModelEClass = createEClass(ANNOTATION_MODEL);
 		createEAttribute(annotationModelEClass, ANNOTATION_MODEL__NAME);
-		createEReference(annotationModelEClass, ANNOTATION_MODEL__CLASSES);
+		createEReference(annotationModelEClass, ANNOTATION_MODEL__ANNOTATION_CLASSES);
 		createEReference(annotationModelEClass, ANNOTATION_MODEL__PARTIAL_INHIRITENCES);
 		createEReference(annotationModelEClass, ANNOTATION_MODEL__EQUIVALENCES);
+		createEReference(annotationModelEClass, ANNOTATION_MODEL__CLASSES);
 
 		annotationClassEClass = createEClass(ANNOTATION_CLASS);
 		createEReference(annotationClassEClass, ANNOTATION_CLASS__ANNOTATED_CLASS);
@@ -445,9 +455,10 @@ public class EcoreAnnotationPackageImpl extends EPackageImpl implements EcoreAnn
 		// Initialize classes, features, and operations; add parameters
 		initEClass(annotationModelEClass, AnnotationModel.class, "AnnotationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnnotationModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnnotationModel_Classes(), this.getAnnotationClass(), null, "classes", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotationModel_AnnotationClasses(), this.getAnnotationClass(), null, "annotationClasses", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotationModel_PartialInhiritences(), this.getCaseOf(), null, "partialInhiritences", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotationModel_Equivalences(), this.getEquivalence(), null, "equivalences", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotationModel_Classes(), theEcorePackage.getEClass(), null, "classes", null, 0, -1, AnnotationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationClassEClass, AnnotationClass.class, "AnnotationClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnnotationClass_AnnotatedClass(), theEcorePackage.getEClass(), null, "annotatedClass", null, 1, 1, AnnotationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

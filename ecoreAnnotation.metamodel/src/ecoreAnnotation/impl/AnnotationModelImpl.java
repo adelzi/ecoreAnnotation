@@ -26,9 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getClasses <em>Classes</em>}</li>
+ *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getAnnotationClasses <em>Annotation Classes</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getPartialInhiritences <em>Partial Inhiritences</em>}</li>
  *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getEquivalences <em>Equivalences</em>}</li>
+ *   <li>{@link ecoreAnnotation.impl.AnnotationModelImpl#getClasses <em>Classes</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,14 +57,14 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
+	 * The cached value of the '{@link #getAnnotationClasses() <em>Annotation Classes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClasses()
+	 * @see #getAnnotationClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AnnotationClass> classes;
+	protected EList<AnnotationClass> annotationClasses;
 
 	/**
 	 * The cached value of the '{@link #getPartialInhiritences() <em>Partial Inhiritences</em>}' containment reference list.
@@ -84,6 +85,16 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<Equivalence> equivalences;
+
+	/**
+	 * The cached value of the '{@link #getClasses() <em>Classes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClasses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EClass> classes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,9 +141,21 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AnnotationClass> getClasses() {
+	public EList<AnnotationClass> getAnnotationClasses() {
+		if (annotationClasses == null) {
+			annotationClasses = new EObjectContainmentEList<AnnotationClass>(AnnotationClass.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES);
+		}
+		return annotationClasses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EClass> getClasses() {
 		if (classes == null) {
-			classes = new EObjectContainmentEList<AnnotationClass>(AnnotationClass.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES);
+			classes = new EObjectContainmentEList<EClass>(EClass.class, this, EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES);
 		}
 		return classes;
 	}
@@ -169,12 +192,14 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
+				return ((InternalEList<?>)getAnnotationClasses()).basicRemove(otherEnd, msgs);
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return ((InternalEList<?>)getPartialInhiritences()).basicRemove(otherEnd, msgs);
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				return ((InternalEList<?>)getEquivalences()).basicRemove(otherEnd, msgs);
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,12 +214,14 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
 				return getName();
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-				return getClasses();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
+				return getAnnotationClasses();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return getPartialInhiritences();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				return getEquivalences();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+				return getClasses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,9 +238,9 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
 				setName((String)newValue);
 				return;
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-				getClasses().clear();
-				getClasses().addAll((Collection<? extends AnnotationClass>)newValue);
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
+				getAnnotationClasses().clear();
+				getAnnotationClasses().addAll((Collection<? extends AnnotationClass>)newValue);
 				return;
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				getPartialInhiritences().clear();
@@ -222,6 +249,10 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				getEquivalences().clear();
 				getEquivalences().addAll((Collection<? extends Equivalence>)newValue);
+				return;
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+				getClasses().clear();
+				getClasses().addAll((Collection<? extends EClass>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,14 +269,17 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-				getClasses().clear();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
+				getAnnotationClasses().clear();
 				return;
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				getPartialInhiritences().clear();
 				return;
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				getEquivalences().clear();
+				return;
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+				getClasses().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,12 +295,14 @@ public class AnnotationModelImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
-				return classes != null && !classes.isEmpty();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
+				return annotationClasses != null && !annotationClasses.isEmpty();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 				return partialInhiritences != null && !partialInhiritences.isEmpty();
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
 				return equivalences != null && !equivalences.isEmpty();
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+				return classes != null && !classes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
