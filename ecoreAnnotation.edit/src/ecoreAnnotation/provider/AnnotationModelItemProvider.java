@@ -6,17 +6,12 @@ package ecoreAnnotation.provider;
 import ecoreAnnotation.AnnotationModel;
 import ecoreAnnotation.EcoreAnnotationFactory;
 import ecoreAnnotation.EcoreAnnotationPackage;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -148,9 +143,10 @@ public class AnnotationModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__ANNOTATION_CLASSES);
 			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__PARTIAL_INHIRITENCES);
 			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__EQUIVALENCES);
+			childrenFeatures.add(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES);
 		}
 		return childrenFeatures;
 	}
@@ -209,9 +205,10 @@ public class AnnotationModelItemProvider
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__ANNOTATION_CLASSES:
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__PARTIAL_INHIRITENCES:
 			case EcoreAnnotationPackage.ANNOTATION_MODEL__EQUIVALENCES:
+			case EcoreAnnotationPackage.ANNOTATION_MODEL__CLASSES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -231,7 +228,7 @@ public class AnnotationModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES,
+				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__ANNOTATION_CLASSES,
 				 EcoreAnnotationFactory.eINSTANCE.createAnnotationClass()));
 
 		newChildDescriptors.add
@@ -243,6 +240,11 @@ public class AnnotationModelItemProvider
 			(createChildParameter
 				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__EQUIVALENCES,
 				 EcoreAnnotationFactory.eINSTANCE.createEquivalence()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EcoreAnnotationPackage.Literals.ANNOTATION_MODEL__CLASSES,
+				 org.eclipse.emf.ecore.EcoreFactory.eINSTANCE.createEClass()));
 	}
 
 	/**
