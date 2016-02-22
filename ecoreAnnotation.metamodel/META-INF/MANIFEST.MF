@@ -12,5 +12,6 @@ Export-Package:
  ecoreAnnotation.impl,
  ecoreAnnotation.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.sirius.diagram
 Bundle-ActivationPolicy: lazy

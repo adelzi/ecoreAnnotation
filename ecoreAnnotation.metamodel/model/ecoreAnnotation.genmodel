@@ -17,7 +17,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecoreAnnotation.ecore#//AnnotationModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/annotationClasses"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/partialInhiritences"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/classes"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/equivalences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationModel/classes"/>
     </genClasses>
     <genClasses ecoreClass="ecoreAnnotation.ecore#//AnnotationClass">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//AnnotationClass/annotatedClass"/>
@@ -36,6 +37,10 @@
     </genClasses>
     <genClasses ecoreClass="ecoreAnnotation.ecore#//Annotation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//Annotation/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="ecoreAnnotation.ecore#//Equivalence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//Equivalence/class1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecoreAnnotation.ecore#//Equivalence/class2"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,7 +1,6 @@
 package ecoreAnnotation.externalActions;
 
 import java.util.Collection;
-
 import org.eclipse.emf.ecoretools.design.service.*;
 
 import java.util.List;
@@ -35,14 +34,14 @@ public class ImportAndCopyEClassJavaAction implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections,
 			Map<String, Object> parameters) {
-	
+		DSemanticDiagramSpec containerView = (DSemanticDiagramSpec) parameters.get("containerView");
 		AnnotationModel model = (AnnotationModel) parameters.get("annotationModel");
 		List<EClass> classes = (List<EClass>) parameters.get("classes");
 		
 		//model.getClasses().add(EcoreUtil.copy(classes.get(0)));
 		
-	EClass tmp = EcoreUtil.copy(classes.get(0));
-	DSemanticDiagramSpec containerView = (DSemanticDiagramSpec) parameters.get("containerView");
+	//EClass tmp = EcoreUtil.copy((classes.get(0)).eContainer().);
+	EClass tmp = EcoreUtil.copy(classes.get(0));	
 	//	containerView.getRepresentationElements().removeAll(classes);
 	DesignServices designServices = new DesignServices();
 	designServices.paste(model, tmp, containerView, containerView);

@@ -110,9 +110,11 @@ INewWizard, IExecutableExtension {
 				// adding folders 
 				List<String> baseFolders = new ArrayList<String>();
 				baseFolders.add("ontologies");
-				baseFolders.add("domain_models");
+				baseFolders.add("generalDomain_models");
 				baseFolders.add("annotated_models");
 				baseFolders.add("enriched_models");
+				baseFolders.add("PDV_models");
+				baseFolders.add("view_models");
 				for (String folder : baseFolders) {
 					addFolderToProject(project, folder, new SubProgressMonitor(
 							monitor, 100));

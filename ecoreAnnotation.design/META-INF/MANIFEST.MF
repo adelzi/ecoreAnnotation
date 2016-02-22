@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ui;visibility:=reexport,
  ecoreAnnotation.metamodel,
  org.eclipse.sirius.diagram,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ com.google.guava
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
