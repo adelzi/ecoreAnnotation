@@ -63,21 +63,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyProperties" label="Copy Properties" candidatesExpression="service:getValidsForDiagram_ModelAnnotation(containerView)" multiple="true" tree="true" rootExpression="service:rootAnnotationModels" childrenExpression="feature:eContents" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyProperties" label="Copy Properties" candidatesExpression="service:getValidsForDiagramB(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="service:getAllEContentsA" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="var:element">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:markForAutosize">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="service:isEAttribute">
-                    <subModelOperations xsi:type="tool:ExternalJavaAction" name="RequiredProperties" id="ecoreAnnotation.externalActions.copyRequiredProperties">
-                      <parameters name="annotationModel" value="var:container"/>
-                      <parameters name="attributs" value="var:element"/>
-                      <parameters name="containerView" value="var:containerView"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="RequiredProperties" id="ecoreAnnotation.externalActions.copyRequiredProperties">
+                <parameters name="annotationModel" value="var:container"/>
+                <parameters name="attributs" value="var:element"/>
+                <parameters name="containerView" value="var:containerView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

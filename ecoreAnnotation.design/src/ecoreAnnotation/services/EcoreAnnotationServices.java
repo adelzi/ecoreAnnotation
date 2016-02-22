@@ -13,10 +13,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import ecoreAnnotation.AnnotationClass;
 import ecoreAnnotation.AnnotationModel;
@@ -53,6 +55,17 @@ private List<EObject> allValidSessionElements(EObject cur, Predicate<EObject> va
     }
  
  
+ public List<EObject> getValidsForDiagramB(final EObject element, final DSemanticDecorator containerView) {
+     Predicate<EObject> validForClassDiagram = new Predicate<EObject>() {
+
+         public boolean apply(EObject input) {
+             return input instanceof EPackage || input instanceof EClassifier || input instanceof EAttribute;
+         }
+     };
+     return allValidSessionElements(element, validForClassDiagram);
+ }
+ 
+ 
  public Collection<EObject> allRoots(EObject any) {
      Resource res = any.eResource();
      if (res != null && res.getResourceSet() != null) {
@@ -70,6 +83,86 @@ private List<EObject> allValidSessionElements(EObject cur, Predicate<EObject> va
      return Sets.newLinkedHashSet(Iterables.filter(allRoots(any), ecoreAnnotation.AnnotationModel.class));
  }
 
+
+ public LinkedHashSet<EObject> getEContents(EObject any) {
+	 
+	LinkedHashSet<EObject> list = new LinkedHashSet<EObject>();
+	if (any instanceof EPackage)
+		list.addAll(((EPackage)any).eContents());
+	else if(any instanceof EClass){
+
+		list.addAll(((EClass)any).getEAllAttributes());
+	}
+     return list;
+ }
+ 
+ 
+ public LinkedHashSet<EObject> getEContentsBiss(EObject any) {
+	 
+	LinkedHashSet<EObject> list = new LinkedHashSet<EObject>();
+	List<EAttribute> attribut = new ArrayList<EAttribute>();
+	
+	if (any instanceof EPackage)
+		list.addAll(((EPackage)any).eContents());
+	else if(any instanceof EClass){
+		for(int i=0; i<((EClass)any).getEAllAttributes().size(); i++){
+			EAttribute tmp = ((EClass)any).getEAllAttributes().get(i);
+			attribut.add(tmp);
+		}
+		list.addAll(((EClass)any).getEAllAttributes());
+	}
+     return list;
+ }
+ 
+ 
+ public LinkedHashSet<EObject> getAllEContentsA(EObject any) {
+	 
+	LinkedHashSet<EObject> list = new LinkedHashSet<EObject>();
+	List<EClass> classes = new ArrayList<EClass>();
+	if (any instanceof EPackage)
+		list.addAll(((EPackage)any).eContents());
+	else if(any instanceof EClass){
+		EClass clazz = EcoreFactory.eINSTANCE.createEClass();
+		clazz.setName(((EClass)any).getName());
+		clazz.getEStructuralFeatures().addAll(EcoreUtil.copyAll(((EClass)any).getEAllAttributes())); 
+		//EClass clazz = (EClass) EcoreUtil.copy(any);	
+		list.addAll(((EClass)clazz).getEAttributes());
+	}
+     return list;
+ }
+ 
+ public LinkedHashSet<EObject> getAllEContents(EObject any) {
+	 
+	LinkedHashSet<EObject> list = new LinkedHashSet<EObject>();
+	
+	if (any instanceof EPackage)
+		list.addAll(((EPackage)any).eContents());
+	
+	else if(any instanceof EClass){
+		EClass clazz = EcoreFactory.eINSTANCE.createEClass();
+		clazz.setName(((EClass)any).getName());
+		//clazz.getEStructuralFeatures().addAll(EcoreUtil.copyAll(((EClass)any).getEAllAttributes()));
+		//List<EAttribute> attribut = (List<EAttribute>) ((EClass)any).getEAllAttributes();
+		//List<EAttribute> attribut = new ArrayList<EAttribute>();
+		for(int i=0; i<((EClass)any).getEAllAttributes().size(); i++){
+			//EAttribute tmp = ((EClass)any).getEAllAttributes().get(i);
+			//attribut.add(tmp);
+			EAttribute tmp = EcoreFactory.eINSTANCE.createEAttribute();
+			tmp.setName(((EClass)any).getEAllAttributes().get(i).getName());
+			tmp.setEType(((EClass)any).getEAllAttributes().get(i).getEType());
+			clazz.getEStructuralFeatures().add(tmp);
+		}
+		/*for(int i=0; i< attribut.size(); i++) {
+			EAttribute tmp = EcoreUtil.copy(attribut.get(i));
+			//EAttribute tmp = EcoreFactory.eINSTANCE.createEAttribute();
+			//tmp.setName(attribut.get(i).getName());
+			//tmp.setEType(attribut.get(i).getEType());
+			clazz.getEStructuralFeatures().add(tmp);
+		}*/
+		list.addAll(((EClass)clazz).getEAttributes());
+		}
+	     return list;
+}
  
 public LinkedHashSet<EClass> rootClasses(EObject any) {
     return Sets.newLinkedHashSet(((AnnotationModel)any).getClasses());

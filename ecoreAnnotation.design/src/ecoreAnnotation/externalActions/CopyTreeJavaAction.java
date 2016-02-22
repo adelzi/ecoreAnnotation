@@ -25,9 +25,14 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 import ecoreAnnotation.AnnotationModel;
 
-public class CopyRequiredProperties implements IExternalJavaAction {
+public class CopyTreeJavaAction implements IExternalJavaAction {
 
-	public CopyRequiredProperties() {
+
+
+
+//public class CopyRequiredProperties 
+
+	public CopyTreeJavaAction() {
 		
 	}
 
@@ -60,6 +65,7 @@ public class CopyRequiredProperties implements IExternalJavaAction {
 				boolean x = false;
 				
 				while(j<classes.size() && (!x)){
+					//(EClass) attribut.get(i).eContainer()).getEReferences().get(0).getEOpposite().eContainmentFeature()
 					if(((EClass) attribut.get(i).eContainer()).getName() == classes.get(j).getName()){
 						classes.get(j).getEStructuralFeatures().add(tmp);
 						x=true;
@@ -98,3 +104,4 @@ public class CopyRequiredProperties implements IExternalJavaAction {
 			
 }
 }
+

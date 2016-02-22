@@ -41,7 +41,9 @@ public class ImportAndCopyEClassJavaAction implements IExternalJavaAction {
 		//model.getClasses().add(EcoreUtil.copy(classes.get(0)));
 		
 	//EClass tmp = EcoreUtil.copy((classes.get(0)).eContainer().);
+		
 	EClass tmp = EcoreUtil.copy(classes.get(0));	
+	//tmp.
 	//	containerView.getRepresentationElements().removeAll(classes);
 	DesignServices designServices = new DesignServices();
 	designServices.paste(model, tmp, containerView, containerView);
