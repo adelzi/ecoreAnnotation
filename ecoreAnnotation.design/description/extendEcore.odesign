@@ -63,7 +63,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyProperties" label="Copy Properties" candidatesExpression="service:getValidsForDiagramB(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="service:getAllEContentsA" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyProperties" label="Copy Properties" candidatesExpression="service:getValidsForDiagramB(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="service:getEContents" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -72,6 +72,24 @@
                 <parameters name="annotationModel" value="var:container"/>
                 <parameters name="attributs" value="var:element"/>
                 <parameters name="containerView" value="var:containerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="CopyEClassIsA" label="Copy EClass with IsA" candidatesExpression="service:getValidsForDiagramB(containerView)" multiple="true" tree="true" rootExpression="service:rootEPackages" childrenExpression="service:getEContents" iconPath="/ecoreAnnotation.design/images/icon16/import.gif">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:For" expression="var:element">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:markForAutosize">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="service:isEClass">
+                    <subModelOperations xsi:type="tool:ExternalJavaAction" name="CopyClassIsA" id="ecoreAnnotation.externalActions.CopyClassIsA">
+                      <parameters name="annotationModel" value="var:container"/>
+                      <parameters name="classes" value="var:element"/>
+                      <parameters name="containerView" value="var:containerView"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

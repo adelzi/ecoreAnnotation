@@ -15,8 +15,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DSemanticDiagramSpec;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
@@ -54,7 +56,7 @@ public class CopyTreeJavaAction implements IExternalJavaAction {
 		List<EClass> classes = new ArrayList<EClass>();
 		// Collection<EClass> classes = new ArrayList<EClass>();
 		int k=0;
-		
+		  Copier copier = new Copier();
 			for(int i=0; i< attribut.size(); i++) {
 				//tmp = EcoreUtil.copy(attribut.get(i));
 				EAttribute tmp = EcoreFactory.eINSTANCE.createEAttribute();
@@ -81,13 +83,31 @@ public class CopyTreeJavaAction implements IExternalJavaAction {
 					k++;
 				}
 			}
+			
+			
 			int j=0;
-			while(j<classes.size()){
-			EClass tmp = EcoreUtil.copy(classes.get(j));	
-			//	containerView.getRepresentationElements().removeAll(classes);
 			DesignServices designServices = new DesignServices();
+			
+			while(j<attribut.size()){
+				EClass tmp = (EClass) attribut.get(j).eContainer();
+				
+				for(int i=0; i<tmp.getEReferences().size();i++){
+					//EClass tmp = EcoreUtil.copy(classes.get(j));
+					for(int n=0; n<classes.size(); i++){
+						if(tmp.getEReferences().get(i).getEOpposite().eContainmentFeature().getName() == classes.get(n).getName()){
+							EReference ref = EcoreFactory.eINSTANCE.createEReference();
+							ref = (EReference) EcoreUtil.copy(tmp.getEReferences().get(i));
+							//classes.
+							//ref.setName(tmp.getEReferences().get(i).getName());
+							//ref.set
+						}
+					}
+
+			//	containerView.getRepresentationElements().removeAll(classes);
+
 			designServices.paste(model, tmp, containerView, containerView);
 			j++;
+			}
 			}
 			/*int j=0;
 			while(j<k){

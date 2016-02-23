@@ -91,7 +91,7 @@ private List<EObject> allValidSessionElements(EObject cur, Predicate<EObject> va
 		list.addAll(((EPackage)any).eContents());
 	else if(any instanceof EClass){
 
-		list.addAll(((EClass)any).getEAllAttributes());
+		list.addAll(((EClass)any).getEAttributes());
 	}
      return list;
  }
@@ -124,9 +124,17 @@ private List<EObject> allValidSessionElements(EObject cur, Predicate<EObject> va
 	else if(any instanceof EClass){
 		EClass clazz = EcoreFactory.eINSTANCE.createEClass();
 		clazz.setName(((EClass)any).getName());
-		clazz.getEStructuralFeatures().addAll(EcoreUtil.copyAll(((EClass)any).getEAllAttributes())); 
+		//clazz.getEStructuralFeatures().addAll(EcoreUtil.copyAll(((EClass)any).getEAllAttributes()));
+		clazz.getEStructuralFeatures().addAll(((EClass)any).getEAllAttributes()); 
 		//EClass clazz = (EClass) EcoreUtil.copy(any);	
-		list.addAll(((EClass)clazz).getEAttributes());
+		list.addAll(((EClass)clazz).getEAllAttributes());
+		
+		for(int i=0; i<((EClass)any).getEAttributes().size(); i++){
+			EAttribute tmp = EcoreUtil.copy(((EClass)any).getEAttributes().get(i));
+			EClass classTmp = (EClass)((EClass)any).getEAttributes().get(i).eContainer();
+			classTmp.getEStructuralFeatures().add(tmp);
+			
+		}
 	}
      return list;
  }

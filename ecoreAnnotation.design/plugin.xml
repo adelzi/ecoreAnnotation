@@ -21,4 +21,11 @@
            id="ecoreAnnotation.externalActions.copyRequiredProperties">
      </javaActions>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="ecoreAnnotation.externalActions.CopyClassIsA"
+           id="ecoreAnnotation.externalActions.CopyClassIsA">
+     </javaActions>
+  </extension>
 </plugin>
